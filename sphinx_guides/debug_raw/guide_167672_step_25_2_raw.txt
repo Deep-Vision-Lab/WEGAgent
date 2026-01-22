@@ -1,0 +1,1 @@
+{"parts":[{"name":"Fan hub","bbox_xyxy":[0.57,0.59,0.79,0.79],"confidence":0.57},{"name":"Fan blade","bbox_xyxy":[0.30,0.31,0.66,0.63],"confidence":0.38}]}

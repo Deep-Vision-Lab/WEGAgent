@@ -1,0 +1,1 @@
+{"parts":[{"name":"evaporator fan assembly","bbox_xyxy":[0.34,0.45,0.70,0.64],"confidence":0.80}]}

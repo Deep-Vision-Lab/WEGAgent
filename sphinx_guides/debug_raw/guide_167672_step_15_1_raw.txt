@@ -1,0 +1,1 @@
+{"parts":[{"name":"ice maker","bbox_xyxy":[0.55,0.67,0.71,0.82],"confidence":0.87}]}

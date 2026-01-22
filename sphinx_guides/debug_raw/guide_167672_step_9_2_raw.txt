@@ -1,0 +1,1 @@
+{"parts":[{"name":"Upper left drawer slide","bbox_xyxy":[0.41,0.19,0.75,0.33],"confidence":0.50}]}

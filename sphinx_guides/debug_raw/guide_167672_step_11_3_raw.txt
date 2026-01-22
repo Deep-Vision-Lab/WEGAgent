@@ -1,0 +1,19 @@
+{
+  "parts": [
+    {
+      "name": "door switch connector",
+      "bbox_xyxy": [0.19,0.37,0.32,0.47],
+      "confidence": 0.9
+    },
+    {
+      "name": "door switch connector",
+      "bbox_xyxy": [0.19,0.63,0.32,0.72],
+      "confidence": 0.9
+    },
+    {
+      "name": "door switch connector",
+      "bbox_xyxy": [0.19,0.77,0.32,0.86],
+      "confidence": 0.9
+    }
+  ]
+}

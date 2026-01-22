@@ -1,0 +1,1 @@
+{"parts":[{"name":"Main drawer bin","bbox_xyxy":[0.37,0.35,0.81,0.83],"confidence":0.96}]}

@@ -1,0 +1,783 @@
+{
+  "guide_id": 167672,
+  "source_url": "https://www.ifixit.com/Guide/LG+Refrigerator+Evaporator+Fan+Replacement/167672",
+  "title": "LG Refrigerator Evaporator Fan Replacement",
+  "device": "Evaporator Fan",
+  "summary": "Use this guide to replace the evaporator fan on...",
+  "toolbox": [
+    "3/16 Flat Head Screwdriver",
+    "Phillips #2 Screwdriver",
+    "Diagonal pliers"
+  ],
+  "parts": [],
+  "relevant_urls": [],
+  "steps": [
+    {
+      "step_index": 1,
+      "step_id_ifixit": 353934,
+      "full_description": "- Unplug your refrigerator before you begin your repair.\n- If you are testing or repairing the following items, you may also need to shut off and disconnect the water supply:\n- Condenser fan motor\n- Compressor motor and thermal overload device\n- Water supply valve assembly",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/SaOfLbkeAxgmho5g.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_1_1.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 2,
+      "step_id_ifixit": 354033,
+      "full_description": "- Pull open the freezer door fully.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/OKxbMtWRmoXOWyaR.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_2_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/GcR3eNwYXLI2Qllc.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_2_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 3,
+      "step_id_ifixit": 354034,
+      "full_description": "- Lift and remove the upper pull-out drawer.\n- Lift and remove the main drawer bin.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/2lstsmEMiHTWgUI2.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_3_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/gkhWaS2A6wVNAVhg.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_3_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/miQiZbjUkYAZ1dFi.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_3_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 4,
+      "step_id_ifixit": 354035,
+      "full_description": "- Use your finger or a flat-blade screwdriver to depress the two locking tabs on the right drawer rail cover.\n- Lift the cover off of the rail and remove it.\n- Repeat this procedure for the left drawer rail cover.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/VIRitIupMYa24tnO.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_4_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/qrIEYbAKiKuqdVBB.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_4_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/n1MaTf5Mg3rZgyoH.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_4_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 5,
+      "step_id_ifixit": 354036,
+      "full_description": "- The drawer rail covers can be tricky to reinstall. Follow these steps to reinstall them:\n- Hold the drawer rail cover flush against the side of the drawer rail.\n- You should feel the locking tabs protruding.\n- Push the rail cover straight downward to install. It should click into place.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/MEFyDdexR14BxaWf.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_5_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/uLs4YXSkTmIIIFjp.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_5_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 6,
+      "step_id_ifixit": 354037,
+      "full_description": "- Use a Phillips screwdriver to remove the screw securing the drawer to each of the drawer slides.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/SpYpPYmrhf5JehPm.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_6_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/DWMnfT2SOUXOEaKB.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_6_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 7,
+      "step_id_ifixit": 354038,
+      "full_description": "- Lift the front of the drawer up.\n- Pull the drawer toward you to release the drawer from the drawer slides.\n- Remove the freezer drawer.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/52fl1tpPKkW2fGCO.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_7_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/TOksEKHvrCDBMprw.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_7_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/EnwpcK2kqHt15Tgf.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_7_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 8,
+      "step_id_ifixit": 354049,
+      "full_description": "- Use a Phillips screwdriver to remove the screws securing both left drawer slides.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/KfpJTpEXw4S5uS5H.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_8_1.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 9,
+      "step_id_ifixit": 354050,
+      "full_description": "- Pull the upper left drawer slide slightly towards you to release the locking tab at the rear.\n- Remove the upper left drawer slide.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/33sjwXHWewSnxDjB.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_9_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/ckSLAH5Ry2YjMlpj.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_9_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 10,
+      "step_id_ifixit": 354051,
+      "full_description": "- Pull the lower left drawer slide slightly toward you to release the locking tab at the rear.\n- Reposition the lower left drawer slide to gain access to the door switch connector.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/xkqISFknxAcNBnA2.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_10_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/rgwpBF54oShqjeSm.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_10_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/XAKPl31mJmdmU6SZ.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_10_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 11,
+      "step_id_ifixit": 354052,
+      "full_description": "- Squeeze the door switch connector to release it.\n- Pull the door switch connector down to disconnect it.\n- Remove the lower left drawer slide.\n- If you are removing the freezer evaporator cover, likely only the left-hand slides may need to be removed. In some cases you will need to repeat the previous three steps to remove the right slides as well.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/3yINl2YqHokG3eIO.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_11_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/EA34hqgEMxHjDLDp.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_11_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/KVfIIUChl4mSqG1W.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_11_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 12,
+      "step_id_ifixit": 354055,
+      "full_description": "- Use a Phillips screwdriver to remove the screws securing the ice maker to the top of the freezer compartment.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/65jVx2OUgBhX4NBP.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_12_1.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 13,
+      "step_id_ifixit": 354056,
+      "full_description": "- Insert a flat-blade screwdriver into the slot located on the right edge of the ice maker.\n- Pry outward with the screwdriver to release the locking tab securing the ice maker to the fridge.\n- When the tab releases, pull the right front corner of the ice maker down.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/HN6phJTbgGOAoJTL.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_13_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/6TneoZ2BSIDcyVEt.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_13_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/EuQyLxCpp2MMEDOE.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_13_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 14,
+      "step_id_ifixit": 354057,
+      "full_description": "- Repeat the previous operation on the left side of the ice maker to release it.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/gpLr1jom3UfnQH4O.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_14_1.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 15,
+      "step_id_ifixit": 354058,
+      "full_description": "- Grasp the front edge of the ice maker and pull it towards you.\n- Lower the ice maker.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/wR1MSK4oIdqHfyqi.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_15_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/FHUtX2326WhLU3ep.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_15_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/k6MjLiNlXvDdNlSM.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_15_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 16,
+      "step_id_ifixit": 354059,
+      "full_description": "- Squeeze the ice maker connector to release it and pull it straight out to disconnect it.\n- Remove the ice maker.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/qGuLXVxPvXFVbGbq.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_16_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/GV1CR64HOCHepxCr.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_16_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/OBPBQYxdewuW5vZJ.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_16_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 17,
+      "step_id_ifixit": 354041,
+      "full_description": "- Pinch the rear portion of the air return cover to release it from the freezer wall.\n- Pull the air return cover outward and remove it.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/GQICkgUxdYlQnJTJ.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_17_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/f2MLvBNSADpXGx2R.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_17_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/g6X4QtdB5daEJ6Da.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_17_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 18,
+      "step_id_ifixit": 354042,
+      "full_description": "- Use a Philips screwdriver to remove the screw (or screws) securing the evaporator cover.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/drRkumwCGRD13ClR.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_18_1.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 19,
+      "step_id_ifixit": 354043,
+      "full_description": "- Don't try to remove the evaporator cover fully, as It is still connected to the fridge with a number of wires.\n- Grasp the evaporator cover by the air vent openings and pull the top edge toward you.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/LNt2VSuO5xApujrb.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_19_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/ceUUluGInXNUDrUG.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_19_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 20,
+      "step_id_ifixit": 354044,
+      "full_description": "- Lift the evaporator cover slightly to release the tabs at the lower edge.\n- Swing the left edge of the evaporator cover toward you and lower it.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/sQCuH2S2WQXS1FWO.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_20_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/qfBo1al5ueCkbU4f.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_20_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/hhEHJTWJvSICOGg1.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_20_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 21,
+      "step_id_ifixit": 354045,
+      "full_description": "- Disconnect the electrical connections in the upper left corner of the freezer.\n- Make a note of the locations of the connections for re-installation.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/pFGbEtvE44nOIGPj.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_21_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/FwcIZB42Rh2xVOiM.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_21_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/oTwSIQiVS6IGHRFY.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_21_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 22,
+      "step_id_ifixit": 354046,
+      "full_description": "- Swing the left edge of the evaporator cover further toward you to access the connections in the upper right corner.\n- Squeeze and pull the connector to disconnect the thermistor mounted in the evaporator cover.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/s5JeSFcBC1MP2MKp.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_22_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/m4a1JPSc4QaJgGlK.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_22_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/KJE2MECfqAJDCKEC.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_22_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 23,
+      "step_id_ifixit": 354047,
+      "full_description": "- Remove the evaporator cover.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/P2IE6SZiwIVUfLbW.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_23_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/bldbQ3rGVRLJbbEG.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_23_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 24,
+      "step_id_ifixit": 354079,
+      "full_description": "- Use a Philips screwdriver to remove the screws securing the evaporator fan assembly to the evaporator cover.\n- Remove the evaporator fan assembly.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/iEpBwZQLFOo1BDmR.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_24_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/IpZNKglULUiKSGqJ.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_24_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/rGMrkwEk5ayuknxL.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_24_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 25,
+      "step_id_ifixit": 354080,
+      "full_description": "- Insert two flat-head screwdrivers through the top of the fan opening in the fan assembly.\n- Position the head of each screwdriver opposite each other underneath the fan hub.\n- Use the screwdrivers to pry the fan off the shaft.\n- Remove the fan.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/y1rYGHhWIJNLAPWg.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_25_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/cXdHtCfiJTsQKpwN.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_25_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/SeiQGDIosXdX5y3m.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_25_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 26,
+      "step_id_ifixit": 354081,
+      "full_description": "- Cut any cable ties securing the motor wires to the evaporator fan assembly.\n- Unhook the motor wires from the evaporator fan assembly.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/6JAusj4ybIXpL1VK.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_26_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/ebuqfR5ESmOpXY5B.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_26_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_index": 27,
+      "step_id_ifixit": 354082,
+      "full_description": "- Use a Phillips screwdriver to remove the screws securing the evaporator fan motor cover.\n- Remove the evaporator fan motor from the evaporator fan assembly.\n- Your [link|https://guide-images.cdn.ifixit.com/igi/2aqeQNUsBpYDtREq.full|replacement motor|new_window=true] may not come with [link|https://guide-images.cdn.ifixit.com/igi/I1qNvXQsgNZ151O4.full|the two rubber motor mounts|new_window=true]. Transfer them from the old motor and motor cover.",
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/FIWguGRjLEYSkqaT.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_27_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/fLbAfCiIOg1HJIRZ.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_27_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/fTtWbBCFZOdrBGYj.standard",
+          "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_27_3.jpg"
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/SaOfLbkeAxgmho5g.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_1_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/OKxbMtWRmoXOWyaR.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_2_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/GcR3eNwYXLI2Qllc.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_2_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/2lstsmEMiHTWgUI2.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_3_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/gkhWaS2A6wVNAVhg.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_3_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/miQiZbjUkYAZ1dFi.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_3_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/VIRitIupMYa24tnO.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_4_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/qrIEYbAKiKuqdVBB.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_4_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/n1MaTf5Mg3rZgyoH.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_4_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/MEFyDdexR14BxaWf.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_5_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/uLs4YXSkTmIIIFjp.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_5_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/SpYpPYmrhf5JehPm.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_6_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/DWMnfT2SOUXOEaKB.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_6_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/52fl1tpPKkW2fGCO.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_7_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/TOksEKHvrCDBMprw.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_7_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/EnwpcK2kqHt15Tgf.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_7_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/KfpJTpEXw4S5uS5H.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_8_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/33sjwXHWewSnxDjB.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_9_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/ckSLAH5Ry2YjMlpj.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_9_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/xkqISFknxAcNBnA2.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_10_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/rgwpBF54oShqjeSm.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_10_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/XAKPl31mJmdmU6SZ.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_10_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/3yINl2YqHokG3eIO.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_11_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/EA34hqgEMxHjDLDp.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_11_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/KVfIIUChl4mSqG1W.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_11_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/65jVx2OUgBhX4NBP.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_12_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/HN6phJTbgGOAoJTL.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_13_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/6TneoZ2BSIDcyVEt.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_13_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/EuQyLxCpp2MMEDOE.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_13_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/gpLr1jom3UfnQH4O.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_14_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/wR1MSK4oIdqHfyqi.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_15_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/FHUtX2326WhLU3ep.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_15_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/k6MjLiNlXvDdNlSM.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_15_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/qGuLXVxPvXFVbGbq.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_16_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/GV1CR64HOCHepxCr.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_16_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/OBPBQYxdewuW5vZJ.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_16_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/GQICkgUxdYlQnJTJ.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_17_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/f2MLvBNSADpXGx2R.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_17_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/g6X4QtdB5daEJ6Da.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_17_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/drRkumwCGRD13ClR.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_18_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/LNt2VSuO5xApujrb.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_19_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/ceUUluGInXNUDrUG.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_19_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/sQCuH2S2WQXS1FWO.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_20_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/qfBo1al5ueCkbU4f.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_20_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/hhEHJTWJvSICOGg1.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_20_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/pFGbEtvE44nOIGPj.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_21_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/FwcIZB42Rh2xVOiM.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_21_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/oTwSIQiVS6IGHRFY.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_21_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/s5JeSFcBC1MP2MKp.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_22_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/m4a1JPSc4QaJgGlK.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_22_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/KJE2MECfqAJDCKEC.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_22_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/P2IE6SZiwIVUfLbW.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_23_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/bldbQ3rGVRLJbbEG.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_23_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/iEpBwZQLFOo1BDmR.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_24_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/IpZNKglULUiKSGqJ.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_24_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/rGMrkwEk5ayuknxL.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_24_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/y1rYGHhWIJNLAPWg.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_25_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/cXdHtCfiJTsQKpwN.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_25_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/SeiQGDIosXdX5y3m.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_25_3.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/6JAusj4ybIXpL1VK.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_26_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/ebuqfR5ESmOpXY5B.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_26_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/FIWguGRjLEYSkqaT.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_27_1.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/fLbAfCiIOg1HJIRZ.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_27_2.jpg",
+      "caption": null
+    },
+    {
+      "src_url": "https://guide-images.cdn.ifixit.com/igi/fTtWbBCFZOdrBGYj.standard",
+      "saved_path": "preweg_data/appliances/refrigerators/lg/lg_refrigerator/imgs/guide_167672_step_27_3.jpg",
+      "caption": null
+    }
+  ]
+}

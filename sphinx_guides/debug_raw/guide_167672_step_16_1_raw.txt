@@ -1,0 +1,1 @@
+{"parts":[{"name":"ICE MAKER CONNECTOR","bbox_xyxy":[0.41,0.50,0.49,0.58],"confidence":0.08}]}

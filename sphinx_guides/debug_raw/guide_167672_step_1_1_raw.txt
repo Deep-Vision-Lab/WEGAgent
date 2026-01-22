@@ -1,0 +1,1 @@
+{"parts":[{"name":"Condenser fan motor","bbox_xyxy":[0.41,0.22,0.50,0.32],"confidence":0.47},{"name":"Compressor motor and thermal overload device","bbox_xyxy":[0.51,0.25,0.57,0.34],"confidence":0.52},{"name":"Water supply valve assembly","bbox_xyxy":[0.60,0.47,0.66,0.55],"confidence":0.61},{"name":"Refrigerator","bbox_xyxy":[0.46,0.73,0.56,0.83],"confidence":0.46}]}

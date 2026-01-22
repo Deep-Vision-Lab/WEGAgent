@@ -1,0 +1,1 @@
+{"parts":[{"name":"Screwdriver","bbox_xyxy":[0.35,0.47,0.46,0.53],"confidence":0.45}]}

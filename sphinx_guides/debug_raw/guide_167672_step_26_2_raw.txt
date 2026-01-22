@@ -1,0 +1,1 @@
+{"parts":[{"name":"Motor Wires","bbox_xyxy":[0.53,0.25,0.62,0.47],"confidence":0.86},{"name":"Evaporator Fan Assembly","bbox_xyxy":[0.67,0.67,0.74,0.77],"confidence":0.94}]}

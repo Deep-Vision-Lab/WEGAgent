@@ -1,0 +1,117 @@
+{
+  "guide_path": "preweg_data\\appliances\\refrigerators\\lg\\lg_refrigerator\\guides\\167672_lg_refrigerator_evaporator_fan_replacement.json",
+  "actions_per_step": [
+    [
+      "['Unplug your refrigerator.']",
+      "['Shut off and disconnect the water supply for the condenser fan motor.']",
+      "['Shut off and disconnect the water supply for the compressor motor.']",
+      "['Shut off and disconnect the water supply for the thermal overload device.']",
+      "['Shut off and disconnect the water supply for the water supply valve assembly.']"
+    ],
+    [
+      "['Pull open the freezer door fully.']"
+    ],
+    [
+      "['Lift and remove the upper pull-out drawer.']",
+      "['Lift and remove the main drawer bin.']"
+    ],
+    [
+      "['Use your finger or a flat-blade screwdriver to depress the two locking tabs on the right drawer rail cover.']",
+      "['Lift the cover off of the rail and remove it.']",
+      "['Repeat this procedure for the left drawer rail cover.']"
+    ],
+    [
+      "['Hold the drawer rail cover flush against the side of the drawer rail.']",
+      "['Push the rail cover straight downward to install.']"
+    ],
+    [
+      "['Use a Phillips screwdriver to remove the screw securing the drawer to each of the drawer slides.']"
+    ],
+    [
+      "['Lift the front of the drawer up.']",
+      "['Pull the drawer toward you to release the drawer from the drawer slides.']",
+      "['Remove the freezer drawer.']"
+    ],
+    [
+      "['Use a Phillips screwdriver to remove the screws securing both left drawer slides.']"
+    ],
+    [
+      "['Pull the upper left drawer slide slightly towards you to release the locking tab at the rear.']",
+      "['Remove the upper left drawer slide.']"
+    ],
+    [
+      "['Pull the lower left drawer slide slightly toward you to release the locking tab at the rear.']",
+      "['Reposition the lower left drawer slide to gain access to the door switch connector.']"
+    ],
+    [
+      "['Squeeze the door switch connector to release it.']",
+      "['Pull the door switch connector down to disconnect it.']",
+      "['Remove the lower left drawer slide.']",
+      "['Repeat the previous three steps to remove the right slides if necessary.']"
+    ],
+    [
+      "['Use a Phillips screwdriver to remove the screws securing the ice maker to the top of the freezer compartment.']"
+    ],
+    [
+      "['Insert a flat-blade screwdriver into the slot located on the right edge of the ice maker.']",
+      "['Pry outward with the screwdriver to release the locking tab securing the ice maker to the fridge.']",
+      "['Pull the right front corner of the ice maker down.']"
+    ],
+    [
+      "['Repeat the previous operation on the left side of the ice maker to release it.']"
+    ],
+    [
+      "['Grasp the front edge of the ice maker and pull it towards you.']",
+      "['Lower the ice maker.']"
+    ],
+    [
+      "['Squeeze the ice maker connector to release it.']",
+      "['Pull it straight out to disconnect it.']",
+      "['Remove the ice maker.']"
+    ],
+    [
+      "['Pinch the rear portion of the air return cover to release it from the freezer wall.']",
+      "['Pull the air return cover outward and remove it.']"
+    ],
+    [
+      "['Use a Phillips screwdriver to remove the screw (or screws) securing the evaporator cover.']"
+    ],
+    [
+      "['Grasp the evaporator cover by the air vent openings.']",
+      "['Pull the top edge toward you.']"
+    ],
+    [
+      "['Lift the evaporator cover slightly to release the tabs at the lower edge.']",
+      "['Swing the left edge of the evaporator cover toward you and lower it.']"
+    ],
+    [
+      "['Disconnect the electrical connections in the upper left corner of the freezer.']"
+    ],
+    [
+      "['Swing the left edge of the evaporator cover further toward you.']",
+      "['Squeeze and pull the connector to disconnect the thermistor mounted in the evaporator cover.']"
+    ],
+    [
+      "['Remove the evaporator cover.']"
+    ],
+    [
+      "['Use a Phillips screwdriver to remove the screws securing the evaporator fan assembly to the evaporator cover.']",
+      "['Remove the evaporator fan assembly.']"
+    ],
+    [
+      "['Insert two flat-head screwdrivers through the top of the fan opening in the fan assembly.']",
+      "['Position the head of each screwdriver opposite each other underneath the fan hub.']",
+      "['Use the screwdrivers to pry the fan off the shaft.']",
+      "['Remove the fan.']"
+    ],
+    [
+      "['Cut any cable ties securing the motor wires to the evaporator fan assembly.']",
+      "['Unhook the motor wires from the evaporator fan assembly.']"
+    ],
+    [
+      "['Use a Phillips screwdriver to remove the screws securing the evaporator fan motor cover.']",
+      "['Remove the evaporator fan motor from the evaporator fan assembly.']",
+      "['Transfer the two rubber motor mounts from the old motor and motor cover if necessary.']"
+    ]
+  ]
+}

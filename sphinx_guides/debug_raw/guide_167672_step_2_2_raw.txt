@@ -1,0 +1,1 @@
+{"parts":[{"name":"Freezer door","bbox_xyxy":[0.52,0.20,0.78,0.42],"confidence":0.99}]}

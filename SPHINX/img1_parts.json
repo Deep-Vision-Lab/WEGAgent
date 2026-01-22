@@ -1,0 +1,21 @@
+{
+  "image_path": "img1.jpg",
+  "image_size": [
+    300,
+    225
+  ],
+  "parts": [
+    {
+      "name": "Iron Box",
+      "bbox_xyxy": [
+        135,
+        27,
+        267,
+        104
+      ],
+      "confidence": 0.86
+    }
+  ],
+  "raw_model_output": "{\"parts\":[{\"name\":\"Iron Box\",\"bbox_xyxy\":[0.45,0.12,0.89,0.46],\"confidence\":0.86}]}",
+  "raw_saved_to": "outputs/sphinx_test/img1_raw.txt"
+}

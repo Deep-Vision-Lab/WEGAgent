@@ -1,0 +1,1 @@
+{"parts":[{"name":"evaporator fan motor","bbox_xyxy":[0.47,0.32,0.61,0.45],"confidence":0.54},{"name":"evaporator fan motor cover","bbox_xyxy":[0.47,0.45,0.61,0.57],"confidence":0.54},{"name":"rubber motor mounts","bbox_xyxy":[0.47,0.57,0.61,0.69],"confidence":0.54},{"name":"rubber motor mounts","bbox_xyxy":[0.47,0.69,0.61,0.80],"confidence":0.54}]}

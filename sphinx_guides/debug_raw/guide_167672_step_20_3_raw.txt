@@ -1,0 +1,1 @@
+{"parts":[{"name":"Evaporator Cover","bbox_xyxy":[0.34,0.29,0.62,0.43],"confidence":0.45}]}

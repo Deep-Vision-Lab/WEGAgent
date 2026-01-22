@@ -1,0 +1,1 @@
+{"parts":[{"name":"1","bbox_xyxy":[0.45,0.45,0.60,0.60],"confidence":0.00},{"name":"2","bbox_xyxy":[0.45,0.61,0.60,0.74],"confidence":0.00},{"name":"3","bbox_xyxy":[0.45,0.74,0.60,0.86],"confidence":0.00},{"name":"4","bbox_xyxy":[0.45,0.86,0.60,0.90],"confidence":0.00}]}

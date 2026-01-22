@@ -1,0 +1,1 @@
+{"parts":[{"name":"Air Return Cover","bbox_xyxy":[0.44,0.12,0.98,0.42],"confidence":0.00}]}

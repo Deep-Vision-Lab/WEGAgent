@@ -1,0 +1,1 @@
+{"parts":[{"name":"Thermistor","bbox_xyxy":[0.36,0.39,0.42,0.45],"confidence":0.38}]}

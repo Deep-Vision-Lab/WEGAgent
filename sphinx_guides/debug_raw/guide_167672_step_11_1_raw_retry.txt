@@ -1,0 +1,50 @@
+{
+"parts": [
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.55],
+"confidence": 0.5
+},
+{
+"name": "door switch connector",
+"bbox_xyxy": [0.43,0.42,0.56,0.

@@ -1,0 +1,1 @@
+{"parts":[{"name":"Rail Cover","bbox_xyxy":[0.45,0.59,0.82,0.75],"confidence":0.87},{"name":"Rail Cover","bbox_xyxy":[0.45,0.59,0.82,0.75],"confidence":0.87}]}

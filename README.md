@@ -184,7 +184,7 @@ WEGv2/
   ]
 }
 
-
+```
 
 ## 📈 Pipeline Execution Modes
 

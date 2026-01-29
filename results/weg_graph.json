@@ -1,0 +1,451 @@
+{
+  "metadata": {
+    "title": "Remove and clean the Whirlpool dishwasher spray arm",
+    "guide_id": 157559,
+    "toolbox": [
+      "Dawn Dish Soap"
+    ],
+    "source_url": "https://www.ifixit.com/Guide/Remove+and+clean+the+Whirlpool+dishwasher+spray+arm/157559",
+    "format": "WEG"
+  },
+  "summary": {
+    "format": "WEG",
+    "title": "Remove and clean the Whirlpool dishwasher spray arm",
+    "guide_id": 157559,
+    "num_steps": 8,
+    "num_edges": 7,
+    "unique_actions": [
+      "clean",
+      "detach",
+      "locate",
+      "reattach",
+      "remove",
+      "rinse",
+      "run",
+      "turn off"
+    ],
+    "unique_tools": [
+      "Dawn Dish Soap",
+      "soft brush"
+    ],
+    "unique_components": [
+      "dishwasher",
+      "dishwasher control panel",
+      "dishwasher lower rack",
+      "dishwasher power",
+      "dishwasher power button",
+      "dishwasher spray arm",
+      "hot water cycle button",
+      "lower rack",
+      "lower spray arm",
+      "lower spray arm mounting hub",
+      "spray arm",
+      "spray arm base",
+      "top spray arm"
+    ]
+  },
+  "nodes": [
+    {
+      "step_id": 1,
+      "task_name": "Disable Dishwasher",
+      "description": "- Turn off the dishwasher.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "turn off",
+          "tool": null,
+          "component": "dishwasher power",
+          "hands": 1,
+          "precise_action": null,
+          "full_action": "Turn off the dishwasher."
+        }
+      ],
+      "tools": [],
+      "parts": [
+        {
+          "name": "dishwasher power button",
+          "bbox": {
+            "x1": 255,
+            "y1": 22,
+            "x2": 285,
+            "y2": 45
+          },
+          "confidence": 0.7,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_1_1.jpg"
+        }
+      ],
+      "hints": [
+        "Ensure power is completely disconnected before proceeding"
+      ],
+      "action_verbs": [
+        "turn off"
+      ],
+      "component_names": [
+        "dishwasher power",
+        "dishwasher power button"
+      ],
+      "images": []
+    },
+    {
+      "step_id": 2,
+      "task_name": "Remove Lower Rack",
+      "description": "- Remove the lower rack.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "remove",
+          "tool": null,
+          "component": "lower rack",
+          "hands": 2,
+          "precise_action": null,
+          "full_action": "Remove the lower rack."
+        }
+      ],
+      "tools": [],
+      "parts": [
+        {
+          "name": "dishwasher lower rack",
+          "bbox": {
+            "x1": 15,
+            "y1": 67,
+            "x2": 285,
+            "y2": 213
+          },
+          "confidence": 0.95,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_2_1.jpg"
+        }
+      ],
+      "hints": [],
+      "action_verbs": [
+        "remove"
+      ],
+      "component_names": [
+        "dishwasher lower rack",
+        "lower rack"
+      ],
+      "images": []
+    },
+    {
+      "step_id": 3,
+      "task_name": "Identify Spray Arm",
+      "description": "- Locate the lower spray arm.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "locate",
+          "tool": null,
+          "component": "lower spray arm",
+          "hands": 1,
+          "precise_action": null,
+          "full_action": "Locate the lower spray arm."
+        }
+      ],
+      "tools": [],
+      "parts": [
+        {
+          "name": "lower spray arm",
+          "bbox": {
+            "x1": 90,
+            "y1": 112,
+            "x2": 210,
+            "y2": 157
+          },
+          "confidence": 0.95,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_3_1.jpg"
+        }
+      ],
+      "hints": [
+        "Look carefully inside the dishwasher bottom"
+      ],
+      "action_verbs": [
+        "locate"
+      ],
+      "component_names": [
+        "lower spray arm"
+      ],
+      "images": []
+    },
+    {
+      "step_id": 4,
+      "task_name": "Remove Lower Spray Arm",
+      "description": "- Detach the  ***lower ***spray arm by rotating the base counterclockwise.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "detach",
+          "tool": null,
+          "component": "spray arm base",
+          "hands": 1,
+          "precise_action": "rotate",
+          "full_action": "Detach the lower spray arm by rotating the base counterclockwise."
+        }
+      ],
+      "tools": [],
+      "parts": [
+        {
+          "name": "lower spray arm",
+          "bbox": {
+            "x1": 60,
+            "y1": 90,
+            "x2": 240,
+            "y2": 157
+          },
+          "confidence": 0.85,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_4_1.jpg"
+        },
+        {
+          "name": "spray arm base",
+          "bbox": {
+            "x1": 120,
+            "y1": 112,
+            "x2": 180,
+            "y2": 135
+          },
+          "confidence": 0.75,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_4_1.jpg"
+        }
+      ],
+      "hints": [
+        "Rotate counterclockwise to remove the lower spray arm",
+        "Ensure careful handling to prevent damage to the component"
+      ],
+      "action_verbs": [
+        "detach"
+      ],
+      "component_names": [
+        "lower spray arm",
+        "spray arm base"
+      ],
+      "images": []
+    },
+    {
+      "step_id": 5,
+      "task_name": "Detach Top Spray Arm",
+      "description": "- Detach the ***top*** spray arm by rotating the base clockwise.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "detach",
+          "tool": null,
+          "component": "spray arm base",
+          "hands": 1,
+          "precise_action": "rotate",
+          "full_action": "Detach the top spray arm by rotating the base clockwise."
+        }
+      ],
+      "tools": [],
+      "parts": [
+        {
+          "name": "top spray arm",
+          "bbox": {
+            "x1": 90,
+            "y1": 90,
+            "x2": 210,
+            "y2": 180
+          },
+          "confidence": 0.85,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_5_1.jpg"
+        }
+      ],
+      "hints": [
+        "Rotate base clockwise to remove top spray arm",
+        "Be careful not to apply excessive force during rotation"
+      ],
+      "action_verbs": [
+        "detach"
+      ],
+      "component_names": [
+        "spray arm base",
+        "top spray arm"
+      ],
+      "images": []
+    },
+    {
+      "step_id": 6,
+      "task_name": "Clean Spray Arm",
+      "description": "- Clean the spray arm with warm soapy water and a soft brush.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "clean",
+          "tool": "soft brush",
+          "component": "spray arm",
+          "hands": 2,
+          "precise_action": null,
+          "full_action": "Clean the spray arm with warm soapy water and a soft brush."
+        }
+      ],
+      "tools": [
+        "Dawn Dish Soap",
+        "soft brush"
+      ],
+      "parts": [
+        {
+          "name": "dishwasher spray arm",
+          "bbox": {
+            "x1": 90,
+            "y1": 90,
+            "x2": 210,
+            "y2": 135
+          },
+          "confidence": 0.85,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_6_1.jpg"
+        }
+      ],
+      "hints": [
+        "Use Dawn Dish Soap",
+        "Ensure all debris is removed"
+      ],
+      "action_verbs": [
+        "clean"
+      ],
+      "component_names": [
+        "dishwasher spray arm",
+        "spray arm"
+      ],
+      "images": []
+    },
+    {
+      "step_id": 7,
+      "task_name": "Reattach Spray Arms",
+      "description": "- Rinse thoroughly and reattach the spray arm to the dishwasher.\n- The longer spray arm goes on the bottom and the shorter one on the top.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "rinse",
+          "tool": "Dawn Dish Soap",
+          "component": "spray arm",
+          "hands": 1,
+          "precise_action": null,
+          "full_action": "Rinse thoroughly and reattach the spray arm to the dishwasher."
+        },
+        {
+          "action": "reattach",
+          "tool": null,
+          "component": "spray arm",
+          "hands": 1,
+          "precise_action": "attach",
+          "full_action": "Rinse thoroughly and reattach the spray arm to the dishwasher."
+        }
+      ],
+      "tools": [],
+      "parts": [
+        {
+          "name": "lower spray arm mounting hub",
+          "bbox": {
+            "x1": 120,
+            "y1": 112,
+            "x2": 180,
+            "y2": 157
+          },
+          "confidence": 0.85,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_7_1.jpg"
+        }
+      ],
+      "hints": [
+        "The longer spray arm goes on the bottom",
+        "The shorter spray arm goes on the top"
+      ],
+      "action_verbs": [
+        "reattach",
+        "rinse"
+      ],
+      "component_names": [
+        "lower spray arm mounting hub",
+        "spray arm"
+      ],
+      "images": []
+    },
+    {
+      "step_id": 8,
+      "task_name": "Final Dishwasher Cleaning",
+      "description": "- Run a cycle with hot water and a dishwasher cleaner to further clean the interior.",
+      "is_weg": true,
+      "actions": [
+        {
+          "action": "run",
+          "tool": null,
+          "component": "dishwasher",
+          "hands": 0,
+          "precise_action": null,
+          "full_action": "Run a cycle with hot water and a dishwasher cleaner to further clean the interior."
+        }
+      ],
+      "tools": [],
+      "parts": [
+        {
+          "name": "dishwasher control panel",
+          "bbox": {
+            "x1": 0,
+            "y1": 0,
+            "x2": 299,
+            "y2": 224
+          },
+          "confidence": 0.9,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_8_1.jpg"
+        },
+        {
+          "name": "hot water cycle button",
+          "bbox": {
+            "x1": 150,
+            "y1": 90,
+            "x2": 180,
+            "y2": 112
+          },
+          "confidence": 0.7,
+          "image_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_8_1.jpg"
+        }
+      ],
+      "hints": [
+        "Use recommended dishwasher cleaner",
+        "Select hot water cycle"
+      ],
+      "action_verbs": [
+        "run"
+      ],
+      "component_names": [
+        "dishwasher",
+        "dishwasher control panel",
+        "hot water cycle button"
+      ],
+      "images": []
+    }
+  ],
+  "edges": [
+    {
+      "source": 1,
+      "target": 2,
+      "relation": "next"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "relation": "next"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "relation": "next"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "relation": "next"
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "relation": "next"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "relation": "next"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "relation": "next"
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+{
+  "metadata": {
+    "preweg_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/guides/157559_remove_and_clean_the_whirlpool_dishwasher_spray_arm.json",
+    "weg_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/guides/157559_remove_and_clean_the_whirlpool_dishwasher_spray_arm_WEG.json",
+    "guide_title": "Remove and clean the Whirlpool dishwasher spray arm",
+    "guide_id": "157559",
+    "global_toolbox": [
+      "dawn dish soap"
+    ]
+  },
+  "structural": {
+    "preweg_step_count": 8,
+    "weg_step_count": 8,
+    "step_count_match": true
+  },
+  "aggregated_precision": {
+    "action_precision": 1.0,
+    "component_precision": 0.875,
+    "tool_precision": 1.0
+  },
+  "extraction_totals": {
+    "actions": "9/9 valid",
+    "components": "8/9 valid",
+    "tools": "2/2 valid",
+    "parts_detected": 10,
+    "hints_generated": 12
+  },
+  "completeness": {
+    "steps_with_actions": "8/8",
+    "steps_with_parts": "8/8",
+    "steps_with_hints": "7/8"
+  },
+  "overall_quality_score": 0.956,
+  "per_step_analysis": [
+    {
+      "step_id": 1,
+      "description": "- Turn off the dishwasher.",
+      "weg_task_name": "Disable Dishwasher",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 0.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "0/1",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 1
+      },
+      "action_details": [
+        {
+          "action": "turn off",
+          "component": "dishwasher power",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": false,
+          "overall_valid": false
+        }
+      ],
+      "component_analysis": {
+        "valid": [],
+        "invalid": [
+          "dishwasher power"
+        ]
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 2,
+      "description": "- Remove the lower rack.",
+      "weg_task_name": "Remove Lower Rack",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "remove",
+          "component": "lower rack",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "lower rack"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 3,
+      "description": "- Locate the lower spray arm.",
+      "weg_task_name": "Identify Spray Arm",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 1
+      },
+      "action_details": [
+        {
+          "action": "locate",
+          "component": "lower spray arm",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "lower spray arm"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 4,
+      "description": "- Detach the lower spray arm by rotating the base counterclockwise.",
+      "weg_task_name": "Remove Lower Spray Arm",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 2,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "detach",
+          "component": "spray arm base",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "spray arm base"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 5,
+      "description": "- Detach the top spray arm by rotating the base clockwise.",
+      "weg_task_name": "Detach Top Spray Arm",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "detach",
+          "component": "spray arm base",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "spray arm base"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 6,
+      "description": "- Clean the spray arm with warm soapy water and a soft brush.",
+      "weg_task_name": "Clean Spray Arm",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "2/2",
+        "parts_detected": 1,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "clean",
+          "component": "spray arm",
+          "tool": "soft brush",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "spray arm"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "Dawn Dish Soap",
+          "soft brush"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 7,
+      "description": "- Rinse thoroughly and reattach the spray arm to the dishwasher.\n- The longer spray arm goes on the bottom and the shorter one on the top.",
+      "weg_task_name": "Reattach Spray Arms",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "rinse",
+          "component": "spray arm",
+          "tool": "Dawn Dish Soap",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "reattach",
+          "component": "spray arm",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "spray arm",
+          "spray arm"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 8,
+      "description": "- Run a cycle with hot water and a dishwasher cleaner to further clean the interior.",
+      "weg_task_name": "Final Dishwasher Cleaning",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 2,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "run",
+          "component": "dishwasher",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "dishwasher"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    }
+  ]
+}

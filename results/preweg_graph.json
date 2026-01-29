@@ -1,0 +1,264 @@
+{
+  "metadata": {
+    "title": "Remove and clean the Whirlpool dishwasher spray arm",
+    "guide_id": 157559,
+    "toolbox": [
+      "Dawn Dish Soap"
+    ],
+    "source_url": "https://www.ifixit.com/Guide/Remove+and+clean+the+Whirlpool+dishwasher+spray+arm/157559",
+    "format": "PreWEG"
+  },
+  "summary": {
+    "format": "PreWEG",
+    "title": "Remove and clean the Whirlpool dishwasher spray arm",
+    "guide_id": 157559,
+    "num_steps": 8,
+    "num_edges": 7,
+    "unique_actions": [
+      "attach",
+      "detach",
+      "lower",
+      "remove",
+      "turn"
+    ],
+    "unique_tools": [],
+    "unique_components": []
+  },
+  "nodes": [
+    {
+      "step_id": 1,
+      "task_name": "",
+      "description": "- Turn off the dishwasher.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [
+        "turn"
+      ],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/VI1jxGSL1EcTf1aM.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_1_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/oJZMJjSElnBwOtqL.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_1_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_id": 2,
+      "task_name": "",
+      "description": "- Remove the lower rack.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [
+        "lower",
+        "remove"
+      ],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/3oxDEa4GBqVTbfvT.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_2_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/2gT1TGiSpwxAAQeZ.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_2_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/2jgSgTZcvTN1KDsh.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_2_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_id": 3,
+      "task_name": "",
+      "description": "- Locate the lower spray arm.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [
+        "lower"
+      ],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/aQS2aWUHBScKr1OC.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_3_1.jpg"
+        }
+      ]
+    },
+    {
+      "step_id": 4,
+      "task_name": "",
+      "description": "- Detach the lower spray arm by rotating the base counterclockwise.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [
+        "detach",
+        "lower"
+      ],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/y5hgXxiH2prdmPrK.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_4_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/ZTItfmWw6fpnnKXK.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_4_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/XIFEt1PTusFGMBTy.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_4_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_id": 5,
+      "task_name": "",
+      "description": "- Detach the top spray arm by rotating the base clockwise.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [
+        "detach"
+      ],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/SCEDwidWXMpcauJr.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_5_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/x4SLjJxWPwMKRYkd.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_5_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/lyppDmjZAZMldaMc.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_5_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_id": 6,
+      "task_name": "",
+      "description": "- Clean the spray arm with warm soapy water and a soft brush.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/IoVeflkKjgOvqaKH.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_6_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/N63sApxt2Z6MExwZ.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_6_2.jpg"
+        }
+      ]
+    },
+    {
+      "step_id": 7,
+      "task_name": "",
+      "description": "- Rinse thoroughly and reattach the spray arm to the dishwasher.\n- The longer spray arm goes on the bottom and the shorter one on the top.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [
+        "attach"
+      ],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/k41VZRUZmok4QROx.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_7_1.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/yxm1CtsHdaISyQXf.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_7_2.jpg"
+        },
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/Vf5SboncJ2epJOSE.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_7_3.jpg"
+        }
+      ]
+    },
+    {
+      "step_id": 8,
+      "task_name": "",
+      "description": "- Run a cycle with hot water and a dishwasher cleaner to further clean the interior.",
+      "is_weg": false,
+      "actions": [],
+      "tools": [],
+      "parts": [],
+      "hints": [],
+      "action_verbs": [],
+      "component_names": [],
+      "images": [
+        {
+          "src_url": "https://guide-images.cdn.ifixit.com/igi/yuIAn3aakfGAV1UI.standard",
+          "saved_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/imgs/guide_157559_step_8_1.jpg"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": 1,
+      "target": 2,
+      "relation": "next"
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "relation": "next"
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "relation": "next"
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "relation": "next"
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "relation": "next"
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "relation": "next"
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "relation": "next"
+    }
+  ]
+}

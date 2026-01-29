@@ -1,0 +1,1164 @@
+{
+  "metadata": {
+    "preweg_path": "data/preweg/appliances/refrigerators/lg/lg_refrigerator/guides/167672_lg_refrigerator_evaporator_fan_replacement.json",
+    "weg_path": "data/preweg/appliances/refrigerators/lg/lg_refrigerator/guides/167672_lg_refrigerator_evaporator_fan_replacement_WEG.json",
+    "guide_title": "LG Refrigerator Evaporator Fan Replacement",
+    "guide_id": "167672",
+    "global_toolbox": [
+      "phillips #2 screwdriver",
+      "3/16 flat head screwdriver",
+      "diagonal pliers"
+    ]
+  },
+  "structural": {
+    "preweg_step_count": 27,
+    "weg_step_count": 27,
+    "step_count_match": true
+  },
+  "aggregated_precision": {
+    "action_precision": 1.0,
+    "component_precision": 0.909,
+    "tool_precision": 1.0
+  },
+  "extraction_totals": {
+    "actions": "40/40 valid",
+    "components": "38/40 valid",
+    "tools": "10/10 valid",
+    "parts_detected": 18,
+    "hints_generated": 11
+  },
+  "completeness": {
+    "steps_with_actions": "22/27",
+    "steps_with_parts": "10/27",
+    "steps_with_hints": "7/27"
+  },
+  "overall_quality_score": 0.895,
+  "per_step_analysis": [
+    {
+      "step_id": 1,
+      "description": "- Unplug your refrigerator before you begin your repair.\n- If you are testing or repairing the following items, you may also need to shut off and disc...",
+      "weg_task_name": "Disconnect Power Supply",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "unplug",
+          "component": "power cord plug",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "power cord plug"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 2,
+      "description": "- Pull open the freezer door fully.",
+      "weg_task_name": "Open Freezer Door",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "pull",
+          "component": "freezer door",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "freezer door"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 3,
+      "description": "- Lift and remove the upper pull-out drawer.\n- Lift and remove the main drawer bin.",
+      "weg_task_name": "Remove Freezer Drawers",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 2,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "lift",
+          "component": "upper pull-out drawer",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "lift",
+          "component": "main drawer bin",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "upper pull-out drawer",
+          "main drawer bin"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 4,
+      "description": "- Use your finger or a flat-blade screwdriver to depress the two locking tabs on the right drawer rail cover.\n- Lift the cover off of the rail and rem...",
+      "weg_task_name": "Remove Drawer Rail Covers",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "3/3",
+        "components": "3/3",
+        "tools": "1/1",
+        "parts_detected": 2,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "depress",
+          "component": "right drawer rail cover locking tabs",
+          "tool": "flat-blade screwdriver",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "lift",
+          "component": "right drawer rail cover",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "remove",
+          "component": "left drawer rail cover",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "right drawer rail cover locking tabs",
+          "right drawer rail cover",
+          "left drawer rail cover"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "3/16 Flat Head Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 5,
+      "description": "- The drawer rail covers can be tricky to reinstall. Follow these steps to reinstall them:\n- Hold the drawer rail cover flush against the side of the ...",
+      "weg_task_name": "Reinstall Drawer Rail Covers",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 2,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "hold",
+          "component": "drawer rail cover",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "push",
+          "component": "rail cover",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "drawer rail cover",
+          "rail cover"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 6,
+      "description": "- Use a Phillips screwdriver to remove the screw securing the drawer to each of the drawer slides.",
+      "weg_task_name": "Remove Drawer Slide Screws",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 0.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "0/1",
+        "tools": "1/1",
+        "parts_detected": 1,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "remove",
+          "component": "drawer slide mounting screws",
+          "tool": "Phillips screwdriver",
+          "action_valid": true,
+          "component_valid": false,
+          "overall_valid": false
+        }
+      ],
+      "component_analysis": {
+        "valid": [],
+        "invalid": [
+          "drawer slide mounting screws"
+        ]
+      },
+      "tool_analysis": {
+        "valid": [
+          "Phillips #2 Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 7,
+      "description": "- Lift the front of the drawer up.\n- Pull the drawer toward you to release the drawer from the drawer slides.\n- Remove the freezer drawer.",
+      "weg_task_name": "Remove Freezer Drawer",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "3/3",
+        "components": "3/3",
+        "tools": "0/0",
+        "parts_detected": 2,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "lift",
+          "component": "drawer front",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "pull",
+          "component": "drawer",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "remove",
+          "component": "freezer drawer",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "drawer front",
+          "drawer",
+          "freezer drawer"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 8,
+      "description": "- Use a Phillips screwdriver to remove the screws securing both left drawer slides.",
+      "weg_task_name": "Remove Left Drawer Slide Screws",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "1/1",
+        "parts_detected": 5,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "remove",
+          "component": "left drawer slide mounting screws",
+          "tool": "Phillips screwdriver",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "left drawer slide mounting screws"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "Phillips #2 Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 9,
+      "description": "- Pull the upper left drawer slide slightly towards you to release the locking tab at the rear.\n- Remove the upper left drawer slide.",
+      "weg_task_name": "Remove Upper Left Drawer Slide",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "pull",
+          "component": "upper left drawer slide",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "remove",
+          "component": "upper left drawer slide",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "upper left drawer slide",
+          "upper left drawer slide"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 10,
+      "description": "- Pull the lower left drawer slide slightly toward you to release the locking tab at the rear.\n- Reposition the lower left drawer slide to gain access...",
+      "weg_task_name": "Reposition Lower Left Drawer Slide",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 1,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "pull",
+          "component": "lower left drawer slide",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "reposition",
+          "component": "lower left drawer slide",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "lower left drawer slide",
+          "lower left drawer slide"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 11,
+      "description": "- Squeeze the door switch connector to release it.\n- Pull the door switch connector down to disconnect it.\n- Remove the lower left drawer slide.\n- If ...",
+      "weg_task_name": "Disconnect Door Switch Connector",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "3/3",
+        "components": "3/3",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 1
+      },
+      "action_details": [
+        {
+          "action": "squeeze",
+          "component": "door switch connector",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "pull",
+          "component": "door switch connector",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "remove",
+          "component": "lower left drawer slide",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "door switch connector",
+          "door switch connector",
+          "lower left drawer slide"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 12,
+      "description": "- Use a Phillips screwdriver to remove the screws securing the ice maker to the top of the freezer compartment.",
+      "weg_task_name": "Remove Ice Maker Mounting Screws",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "1/1",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "remove",
+          "component": "ice maker mounting screws",
+          "tool": "Phillips screwdriver",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "ice maker mounting screws"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "Phillips #2 Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 13,
+      "description": "- Insert a flat-blade screwdriver into the slot located on the right edge of the ice maker.\n- Pry outward with the screwdriver to release the locking ...",
+      "weg_task_name": "Release Right Side of Ice Maker",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "3/3",
+        "components": "3/3",
+        "tools": "1/1",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "insert",
+          "component": "ice maker right edge slot",
+          "tool": "flat-blade screwdriver",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "pry",
+          "component": "ice maker locking tab",
+          "tool": "flat-blade screwdriver",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "pull",
+          "component": "ice maker right front corner",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "ice maker right edge slot",
+          "ice maker locking tab",
+          "ice maker right front corner"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "3/16 Flat Head Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 14,
+      "description": "- Repeat the previous operation on the left side of the ice maker to release it.",
+      "weg_task_name": "Release Left Side of Ice Maker",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 0.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "0/1",
+        "tools": "1/1",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "repeat",
+          "component": "ice maker left side locking tab",
+          "tool": "flat-blade screwdriver",
+          "action_valid": true,
+          "component_valid": false,
+          "overall_valid": false
+        }
+      ],
+      "component_analysis": {
+        "valid": [],
+        "invalid": [
+          "ice maker left side locking tab"
+        ]
+      },
+      "tool_analysis": {
+        "valid": [
+          "3/16 Flat Head Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 15,
+      "description": "- Grasp the front edge of the ice maker and pull it towards you.\n- Lower the ice maker.",
+      "weg_task_name": "Lower Ice Maker",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "grasp",
+          "component": "ice maker front edge",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "lower",
+          "component": "ice maker",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "ice maker front edge",
+          "ice maker"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 16,
+      "description": "- Squeeze the ice maker connector to release it and pull it straight out to disconnect it.\n- Remove the ice maker.",
+      "weg_task_name": "Disconnect Ice Maker Connector",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "squeeze",
+          "component": "ice maker connector",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "remove",
+          "component": "ice maker",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "ice maker connector",
+          "ice maker"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 17,
+      "description": "- Pinch the rear portion of the air return cover to release it from the freezer wall.\n- Pull the air return cover outward and remove it.",
+      "weg_task_name": "Remove Air Return Cover",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "pinch",
+          "component": "air return cover rear portion",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "pull",
+          "component": "air return cover",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "air return cover rear portion",
+          "air return cover"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 18,
+      "description": "- Use a Philips screwdriver to remove the screw (or screws) securing the evaporator cover.",
+      "weg_task_name": "Remove Evaporator Cover Screws",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "1/1",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [
+        {
+          "action": "remove",
+          "component": "evaporator cover mounting screws",
+          "tool": "Philips screwdriver",
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "evaporator cover mounting screws"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "Phillips #2 Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 19,
+      "description": "- Don't try to remove the evaporator cover fully, as It is still connected to the fridge with a number of wires.\n- Grasp the evaporator cover by the a...",
+      "weg_task_name": "Partially Remove Evaporator Cover",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 1
+      },
+      "action_details": [
+        {
+          "action": "grasp",
+          "component": "evaporator cover air vent openings",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "evaporator cover air vent openings"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 20,
+      "description": "- Lift the evaporator cover slightly to release the tabs at the lower edge.\n- Swing the left edge of the evaporator cover toward you and lower it.",
+      "weg_task_name": "Remove Evaporator Cover",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "2/2",
+        "components": "2/2",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "lift",
+          "component": "evaporator cover",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "swing",
+          "component": "evaporator cover",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "evaporator cover",
+          "evaporator cover"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 21,
+      "description": "- Disconnect the electrical connections in the upper left corner of the freezer.\n- Make a note of the locations of the connections for re-installation...",
+      "weg_task_name": "Disconnect Freezer Electrical Connections",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "1/1",
+        "components": "1/1",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 1
+      },
+      "action_details": [
+        {
+          "action": "disconnect",
+          "component": "electrical connections",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "electrical connections"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 22,
+      "description": "- Swing the left edge of the evaporator cover further toward you to access the connections in the upper right corner.\n- Squeeze and pull the connector...",
+      "weg_task_name": "Access Evaporator Cover Connections",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "3/3",
+        "components": "3/3",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 2
+      },
+      "action_details": [
+        {
+          "action": "swing",
+          "component": "evaporator cover left edge",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "squeeze",
+          "component": "thermistor connector",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        },
+        {
+          "action": "pull",
+          "component": "thermistor connector",
+          "tool": null,
+          "action_valid": true,
+          "component_valid": true,
+          "overall_valid": true
+        }
+      ],
+      "component_analysis": {
+        "valid": [
+          "evaporator cover left edge",
+          "thermistor connector",
+          "thermistor connector"
+        ],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 23,
+      "description": "- Remove the evaporator cover.",
+      "weg_task_name": "",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "0/0",
+        "components": "0/0",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [],
+      "component_analysis": {
+        "valid": [],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 24,
+      "description": "- Use a Philips screwdriver to remove the screws securing the evaporator fan assembly to the evaporator cover.\n- Remove the evaporator fan assembly.",
+      "weg_task_name": "",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "0/0",
+        "components": "0/0",
+        "tools": "1/1",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [],
+      "component_analysis": {
+        "valid": [],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "Phillips #2 Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 25,
+      "description": "- Insert two flat-head screwdrivers through the top of the fan opening in the fan assembly.\n- Position the head of each screwdriver opposite each othe...",
+      "weg_task_name": "",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "0/0",
+        "components": "0/0",
+        "tools": "1/1",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [],
+      "component_analysis": {
+        "valid": [],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "3/16 Flat Head Screwdriver"
+        ],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 26,
+      "description": "- Cut any cable ties securing the motor wires to the evaporator fan assembly.\n- Unhook the motor wires from the evaporator fan assembly.",
+      "weg_task_name": "",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "0/0",
+        "components": "0/0",
+        "tools": "0/0",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [],
+      "component_analysis": {
+        "valid": [],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [],
+        "invalid": []
+      }
+    },
+    {
+      "step_id": 27,
+      "description": "- Use a Phillips screwdriver to remove the screws securing the evaporator fan motor cover.\n- Remove the evaporator fan motor from the evaporator fan a...",
+      "weg_task_name": "",
+      "quality_scores": {
+        "action_precision": 1.0,
+        "component_precision": 1.0,
+        "tool_precision": 1.0
+      },
+      "extraction_counts": {
+        "actions": "0/0",
+        "components": "0/0",
+        "tools": "1/1",
+        "parts_detected": 0,
+        "hints_generated": 0
+      },
+      "action_details": [],
+      "component_analysis": {
+        "valid": [],
+        "invalid": []
+      },
+      "tool_analysis": {
+        "valid": [
+          "Phillips #2 Screwdriver"
+        ],
+        "invalid": []
+      }
+    }
+  ]
+}

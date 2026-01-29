@@ -1,0 +1,282 @@
+{
+  "metadata": {
+    "preweg_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/guides/157559_remove_and_clean_the_whirlpool_dishwasher_spray_arm.json",
+    "weg_path": "data/preweg/appliances/dishwashers/whirlpool/whirlpool_dishwasher/guides/157559_remove_and_clean_the_whirlpool_dishwasher_spray_arm_WEG.json",
+    "guide_title": "Remove and clean the Whirlpool dishwasher spray arm",
+    "guide_id": "157559"
+  },
+  "structural": {
+    "preweg_step_count": 8,
+    "weg_step_count": 8,
+    "step_count_match": true
+  },
+  "aggregated_similarity": {
+    "mean_action_jaccard": 0.25,
+    "mean_action_recall": 0.5,
+    "mean_description_overlap": 1.0
+  },
+  "extraction_quality": {
+    "total_components": 16,
+    "total_tools": 2,
+    "total_parts": 10,
+    "total_hints": 12,
+    "steps_with_task_names": 8,
+    "steps_with_tools": 1,
+    "steps_with_parts": 8,
+    "toolbox_coverage": 1.0,
+    "action_enrichment": 1.125
+  },
+  "overall_score": 0.601,
+  "per_step_analysis": [
+    {
+      "step_id": 1,
+      "preweg_description": "- Turn off the dishwasher.",
+      "weg_task_name": "Disable Dishwasher",
+      "metrics": {
+        "action_jaccard": 0.0,
+        "action_recall": 0.0,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 2,
+        "tool_count": 0,
+        "part_count": 1,
+        "hint_count": 1,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [
+          "turn"
+        ],
+        "weg_actions": [
+          "turn off"
+        ],
+        "matched": [],
+        "missing_in_weg": [
+          "turn"
+        ],
+        "extra_in_weg": [
+          "turn off"
+        ]
+      }
+    },
+    {
+      "step_id": 2,
+      "preweg_description": "- Remove the lower rack.",
+      "weg_task_name": "Remove Lower Rack",
+      "metrics": {
+        "action_jaccard": 0.5,
+        "action_recall": 0.5,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 2,
+        "tool_count": 0,
+        "part_count": 1,
+        "hint_count": 0,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [
+          "lower",
+          "remove"
+        ],
+        "weg_actions": [
+          "remove"
+        ],
+        "matched": [
+          "remove"
+        ],
+        "missing_in_weg": [
+          "lower"
+        ],
+        "extra_in_weg": []
+      }
+    },
+    {
+      "step_id": 3,
+      "preweg_description": "- Locate the lower spray arm.",
+      "weg_task_name": "Identify Spray Arm",
+      "metrics": {
+        "action_jaccard": 0.0,
+        "action_recall": 0.0,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 1,
+        "tool_count": 0,
+        "part_count": 1,
+        "hint_count": 1,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [
+          "lower"
+        ],
+        "weg_actions": [
+          "locate"
+        ],
+        "matched": [],
+        "missing_in_weg": [
+          "lower"
+        ],
+        "extra_in_weg": [
+          "locate"
+        ]
+      }
+    },
+    {
+      "step_id": 4,
+      "preweg_description": "- Detach the lower spray arm by rotating the base counterclockwise.",
+      "weg_task_name": "Remove Lower Spray Arm",
+      "metrics": {
+        "action_jaccard": 0.5,
+        "action_recall": 0.5,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 2,
+        "tool_count": 0,
+        "part_count": 2,
+        "hint_count": 2,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [
+          "detach",
+          "lower"
+        ],
+        "weg_actions": [
+          "detach"
+        ],
+        "matched": [
+          "detach"
+        ],
+        "missing_in_weg": [
+          "lower"
+        ],
+        "extra_in_weg": []
+      }
+    },
+    {
+      "step_id": 5,
+      "preweg_description": "- Detach the top spray arm by rotating the base clockwise.",
+      "weg_task_name": "Detach Top Spray Arm",
+      "metrics": {
+        "action_jaccard": 1.0,
+        "action_recall": 1.0,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 2,
+        "tool_count": 0,
+        "part_count": 1,
+        "hint_count": 2,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [
+          "detach"
+        ],
+        "weg_actions": [
+          "detach"
+        ],
+        "matched": [
+          "detach"
+        ],
+        "missing_in_weg": [],
+        "extra_in_weg": []
+      }
+    },
+    {
+      "step_id": 6,
+      "preweg_description": "- Clean the spray arm with warm soapy water and a soft brush.",
+      "weg_task_name": "Clean Spray Arm",
+      "metrics": {
+        "action_jaccard": 0.0,
+        "action_recall": 1.0,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 2,
+        "tool_count": 2,
+        "part_count": 1,
+        "hint_count": 2,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [],
+        "weg_actions": [
+          "clean"
+        ],
+        "matched": [],
+        "missing_in_weg": [],
+        "extra_in_weg": [
+          "clean"
+        ]
+      }
+    },
+    {
+      "step_id": 7,
+      "preweg_description": "- Rinse thoroughly and reattach the spray arm to the dishwasher.\n- The longer spray arm goes on the ...",
+      "weg_task_name": "Reattach Spray Arms",
+      "metrics": {
+        "action_jaccard": 0.0,
+        "action_recall": 0.0,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 2,
+        "tool_count": 0,
+        "part_count": 1,
+        "hint_count": 2,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [
+          "attach"
+        ],
+        "weg_actions": [
+          "reattach",
+          "rinse"
+        ],
+        "matched": [],
+        "missing_in_weg": [
+          "attach"
+        ],
+        "extra_in_weg": [
+          "reattach",
+          "rinse"
+        ]
+      }
+    },
+    {
+      "step_id": 8,
+      "preweg_description": "- Run a cycle with hot water and a dishwasher cleaner to further clean the interior.",
+      "weg_task_name": "Final Dishwasher Cleaning",
+      "metrics": {
+        "action_jaccard": 0.0,
+        "action_recall": 1.0,
+        "description_overlap": 1.0
+      },
+      "extraction": {
+        "component_count": 3,
+        "tool_count": 0,
+        "part_count": 2,
+        "hint_count": 2,
+        "has_task_name": true
+      },
+      "action_analysis": {
+        "preweg_actions": [],
+        "weg_actions": [
+          "run"
+        ],
+        "matched": [],
+        "missing_in_weg": [],
+        "extra_in_weg": [
+          "run"
+        ]
+      }
+    }
+  ]
+}

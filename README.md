@@ -101,26 +101,6 @@ The **Reviewer Agent** validates all extraction results and triggers refinement 
 4. **Sends feedback** to Action Agent for refinement
 5. **Merges** refined results back into the pipeline state
 
-## 🚀 Quick Start
-
-```bash
-# 1. Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Set up environment variables
-cp .env.example .env
-# Edit .env with your API keys (OpenAI, Google, Anthropic)
-
-# 4. Crawl a guide
-python scripts/crawl.py --device refrigerators --limit 1
-
-# 5. Run the pipeline
-python scripts/run_pipeline.py run --guide data/preweg/path/to/guide.json
-```
 
 ## 📁 Project Structure
 
@@ -164,12 +144,6 @@ WEGv2/
 | **Google** | Gemini 1.5/2.5 Flash | Action, Part Vision Agents |
 | **Anthropic** | Claude 3.5 Haiku | Reviewer Agent |
 
-Set in `.env`:
-```bash
-OPENAI_API_KEY=sk-...
-GOOGLE_API_KEY=AI...
-ANTHROPIC_API_KEY=sk-ant-...
-```
 
 ## 📊 WEG Output Format
 
@@ -209,32 +183,8 @@ ANTHROPIC_API_KEY=sk-ant-...
     }
   ]
 }
-```
 
-## 🛠️ Development
 
-```bash
-# Run the full pipeline
-python scripts/run_pipeline.py run --guide data/preweg/path/to/guide.json
-
-# Run with logging
-python scripts/run_pipeline.py run --guide path/to/guide.json --save-logs
-
-# Run in sequential mode (for debugging)
-python scripts/run_pipeline.py run --guide path/to/guide.json --sequential
-
-# Run without reviewer
-python scripts/run_pipeline.py run --guide path/to/guide.json --no-reviewer
-
-# Run single agent for debugging
-python scripts/run_single_agent.py --agent action --guide path/to/guide.json
-
-# Visualize bounding boxes
-python scripts/visualize_bbox.py --weg data/preweg/path/to/guide_WEG.json
-
-# Run tests
-pytest tests/
-```
 
 ## 📈 Pipeline Execution Modes
 

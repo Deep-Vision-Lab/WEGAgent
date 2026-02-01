@@ -528,3 +528,279 @@ Return JSON:
         )
 
         return self.parse_response(response, guide, step_index=step_index)
+
+    # ==================== V2 Pipeline Methods ====================
+    
+    def get_system_prompt_v2(self) -> str:
+        """System prompt for V2 pipeline - actions only, no tool/component/hands."""
+        return """You are an expert at analyzing appliance repair guides and extracting action information.
+
+Your task is to extract ONLY the actions from repair step descriptions:
+1. A TASK NAME - a short title describing what the step accomplishes
+2. ATOMIC ACTIONS - individual actionable instructions
+3. HINTS - tips, warnings, notes that are not actions
+
+=== TASK NAME ===
+A brief 2-5 word title summarizing the step (e.g., "Remove drawer", "Disconnect power")
+
+=== ATOMIC ACTION ===
+A single, concrete instruction that a person can perform:
+- Starts with an imperative verb (Remove, Disconnect, Pull, Press, Rotate, etc.)
+- One specific operation per action
+- Should be executable without further breakdown
+
+For EACH action, extract:
+{
+  "action": "the main action verb (remove, pull, disconnect, etc.)",
+  "precise_action": "a more specific/technical verb if applicable, or null",
+  "full_action": "the complete action sentence",
+  "target_description": "what the action targets (raw text from description)"
+}
+
+=== PRECISE ACTION ===
+The "precise_action" field captures the MORE SPECIFIC technical action:
+- "remove screws" → precise_action: "unscrew"
+- "remove bolts" → precise_action: "unbolt"
+- "pull to open" → precise_action: "open"
+- If already precise (unplug, disconnect), set to null
+
+=== HINTS ===
+Non-action information such as:
+- Safety warnings
+- Tips for easier work
+- Notes for later steps
+- Background information
+
+=== IMPORTANT ===
+In V2 mode, you do NOT extract:
+- Tools (another agent handles this)
+- Components (another agent handles this)
+- Hands count (another agent handles this)
+
+Return ONLY valid JSON. No explanations, no markdown."""
+
+    def build_prompt_v2(self, guide: PreWEGGuide, **kwargs) -> str:
+        """Build prompt for V2 pipeline - actions only."""
+        step_index = kwargs.get("step_index")
+
+        if step_index is not None:
+            # Single step mode
+            step = guide.get_step(step_index)
+            if not step:
+                raise ValueError(f"Step {step_index} not found in guide")
+
+            return f"""Extract action information from this repair step.
+
+Step {step_index}:
+\"\"\"
+{step.full_description}
+\"\"\"
+
+Return JSON:
+{{
+  "step_index": {step_index},
+  "task_name": "short task title",
+  "actions": [
+    {{
+      "action": "main verb",
+      "precise_action": "specific verb or null",
+      "full_action": "full action sentence",
+      "target_description": "what the action targets"
+    }}
+  ],
+  "hints": ["hint1", "hint2"]
+}}"""
+
+        # Full guide mode
+        steps_text = []
+        for step in sorted(guide.steps, key=lambda s: s.step_index):
+            steps_text.append(f"""
+Step {step.step_index}:
+\"\"\"
+{step.full_description}
+\"\"\"
+""")
+
+        return f"""Extract action information from ALL steps of this repair guide.
+
+Guide: {guide.title}
+Device Type: {guide.device_type}
+
+{chr(10).join(steps_text)}
+
+Return JSON array with one object per step:
+[
+  {{
+    "step_index": 1,
+    "task_name": "short task title",
+    "actions": [
+      {{
+        "action": "main verb",
+        "precise_action": "specific verb or null",
+        "full_action": "full action sentence",
+        "target_description": "what the action targets"
+      }}
+    ],
+    "hints": ["hint1", "hint2"]
+  }},
+  ...
+]
+
+Return exactly {guide.num_steps} objects, one per step."""
+
+    def parse_response_v2(
+        self,
+        response: str,
+        guide: PreWEGGuide,
+        **kwargs,
+    ) -> ActionsPerGuide | ActionExtractionResult:
+        """Parse V2 LLM response into structured actions (no tool/component/hands)."""
+        step_index = kwargs.get("step_index")
+
+        try:
+            data = extract_json_from_response(response)
+        except ValueError as e:
+            self.log_error(f"Failed to parse JSON: {e}")
+            if step_index is not None:
+                return ActionExtractionResult(step_index=step_index, actions=[])
+            return ActionsPerGuide(guide_id=guide.guide_id, steps=[])
+
+        if step_index is not None:
+            return self._parse_single_step_v2(data, step_index)
+
+        # Full guide mode
+        if not isinstance(data, list):
+            self.log_error(f"Expected list, got {type(data)}")
+            return ActionsPerGuide(guide_id=guide.guide_id, steps=[])
+
+        steps = []
+        for step_data in data:
+            if isinstance(step_data, dict):
+                idx = step_data.get("step_index", len(steps) + 1)
+                steps.append(self._parse_single_step_v2(step_data, idx))
+
+        return ActionsPerGuide(guide_id=guide.guide_id, steps=steps)
+
+    def _parse_single_step_v2(self, data: dict, step_index: int) -> ActionExtractionResult:
+        """Parse a single step's V2 data (actions only, placeholder for tool/component/hands)."""
+        if not isinstance(data, dict):
+            return ActionExtractionResult(step_index=step_index, actions=[])
+
+        task_name = data.get("task_name")
+        hints = data.get("hints", [])
+        if not isinstance(hints, list):
+            hints = []
+        hints = [str(h).strip() for h in hints if str(h).strip()]
+
+        raw_actions = data.get("actions", [])
+        if not isinstance(raw_actions, list):
+            raw_actions = []
+
+        actions = []
+        quadruples = []
+
+        for action_data in raw_actions:
+            if isinstance(action_data, str):
+                actions.append(action_data.strip())
+                # Create placeholder quadruple
+                quadruples.append(ActionQuadruple(
+                    action=action_data.split()[0].lower() if action_data.split() else "action",
+                    precise_action=None,
+                    tool=None,  # V2: filled by Tool Agent
+                    component=action_data,  # V2: filled by Part Text Agent
+                    hands=0,  # V2: filled by Hands Agent
+                    full_action=action_data,
+                ))
+            elif isinstance(action_data, dict):
+                full_action = action_data.get("full_action", "")
+                if full_action:
+                    actions.append(full_action.strip())
+
+                action_verb = action_data.get("action", "").lower().strip()
+                precise_action = action_data.get("precise_action")
+                if precise_action and isinstance(precise_action, str):
+                    precise_action = precise_action.lower().strip() if precise_action.strip() else None
+                else:
+                    precise_action = None
+
+                target_desc = action_data.get("target_description", full_action)
+
+                if action_verb:
+                    quadruples.append(ActionQuadruple(
+                        action=action_verb,
+                        precise_action=precise_action,
+                        tool=None,  # V2: filled by Tool Agent
+                        component=target_desc,  # V2: placeholder, filled by Part Text Agent
+                        hands=0,  # V2: filled by Hands Agent
+                        full_action=full_action or f"{action_verb} {target_desc}",
+                    ))
+
+        return ActionExtractionResult(
+            step_index=step_index,
+            task_name=task_name,
+            actions=actions,
+            action_quadruples=quadruples,
+            hints=hints,
+        )
+
+    def run_actions_only(self, guide: PreWEGGuide, **kwargs) -> ActionsPerGuide:
+        """
+        V2 Pipeline: Extract actions only (no tool/component/hands).
+        
+        Other agents will fill in tool, component, and hands separately.
+        """
+        self.log(f"[V2] Extracting actions only for guide: {guide.title}")
+        
+        prompt = self.build_prompt_v2(guide, **kwargs)
+        system_prompt = self.get_system_prompt_v2()
+        
+        response = self.client.complete(prompt, system_prompt=system_prompt)
+        result = self.parse_response_v2(response, guide, **kwargs)
+        
+        if isinstance(result, ActionsPerGuide):
+            total_actions = sum(len(s.actions) for s in result.steps)
+            self.log(f"[V2] Extracted {total_actions} actions from {len(result.steps)} steps")
+        
+        return result
+
+    def refine_actions_only(
+        self,
+        guide: PreWEGGuide,
+        step_index: int,
+        feedback: str,
+    ) -> ActionExtractionResult:
+        """V2 Pipeline: Refine action extraction based on reviewer feedback."""
+        self.log(f"[V2] Refining step {step_index} based on feedback")
+        
+        step = guide.get_step(step_index)
+        if not step:
+            raise ValueError(f"Step {step_index} not found")
+
+        prompt = f"""Extract action information from this repair step.
+
+REVIEWER FEEDBACK - PLEASE ADDRESS:
+{feedback}
+
+Step {step_index}:
+\"\"\"
+{step.full_description}
+\"\"\"
+
+Return JSON:
+{{
+  "step_index": {step_index},
+  "task_name": "short task title",
+  "actions": [
+    {{
+      "action": "main verb",
+      "precise_action": "specific verb or null",
+      "full_action": "full action sentence",
+      "target_description": "what the action targets"
+    }}
+  ],
+  "hints": ["hint1", "hint2"]
+}}"""
+
+        system_prompt = self.get_system_prompt_v2()
+        response = self.client.complete(prompt, system_prompt=system_prompt)
+        return self.parse_response_v2(response, guide, step_index=step_index)

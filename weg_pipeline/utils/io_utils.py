@@ -59,7 +59,7 @@ def get_output_path(guide_path: Path | str, suffix: str) -> Path:
     Example:
         guide_path = "data/preweg/.../167672_guide.json"
         suffix = "_WEG.json"
-        returns: "data/preweg/.../167672_guide_WEG.json"
+        returns: "data/preweg/.../{suffix}.json"
     """
     path = Path(guide_path)
-    return path.with_name(path.stem + suffix)
+    return path.parent / suffix

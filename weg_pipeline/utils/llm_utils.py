@@ -193,6 +193,144 @@ class AnthropicClient(BaseLLMClient):
         return response.content[0].text
 
 
+class OllamaClient(BaseLLMClient):
+    """
+    Ollama client for local LLM/VLM inference.
+    
+    Supports both text-only models (llama3, mistral, etc.) and 
+    vision models (llava, llama3.2-vision, etc.).
+    
+    Requirements:
+        - Ollama must be running locally (default: http://localhost:11434)
+        - Model must be pulled first: `ollama pull <model_name>`
+    
+    Recommended models:
+        LLM: llama3.2:3b, llama3.1:8b, mistral:7b, qwen2.5:7b
+        VLM: llama3.2-vision:11b, llava:13b, llava:7b
+    """
+
+    # Vision-capable models in Ollama
+    VISION_MODELS = {
+        "llava", "llava:7b", "llava:13b", "llava:34b",
+        "llava-llama3", "llava-phi3",
+        "llama3.2-vision", "llama3.2-vision:11b", "llama3.2-vision:90b",
+        "minicpm-v", "moondream", "bakllava",
+    }
+
+    def __init__(
+        self,
+        model: str = "llama3.2:3b",
+        base_url: Optional[str] = None,
+        **kwargs,
+    ):
+        super().__init__(model, **kwargs)
+        self.base_url = base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        self._is_vision_model = self._check_vision_capability(model)
+
+    def _check_vision_capability(self, model: str) -> bool:
+        """Check if model supports vision based on known vision models."""
+        model_base = model.split(":")[0].lower()
+        return any(
+            model_base.startswith(vm.split(":")[0]) 
+            for vm in self.VISION_MODELS
+        )
+
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=1, max=10))
+    def complete(self, prompt: str, system_prompt: Optional[str] = None) -> str:
+        import requests
+
+        url = f"{self.base_url}/api/generate"
+        
+        payload = {
+            "model": self.model,
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "temperature": self.temperature,
+                "num_predict": self.max_tokens,
+            },
+        }
+        
+        if system_prompt:
+            payload["system"] = system_prompt
+
+        response = requests.post(url, json=payload, timeout=300)
+        response.raise_for_status()
+        
+        result = response.json()
+        return result.get("response", "")
+
+    @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=1, max=10))
+    def complete_with_image(
+        self,
+        prompt: str,
+        image_path: Path | str,
+        system_prompt: Optional[str] = None,
+    ) -> str:
+        """
+        Generate completion with image input for vision models.
+        
+        Raises:
+            ValueError: If the model doesn't support vision
+        """
+        import requests
+        from .image_utils import image_to_base64
+
+        if not self._is_vision_model:
+            raise ValueError(
+                f"Model '{self.model}' does not support vision. "
+                f"Use a vision model like: {', '.join(sorted(self.VISION_MODELS)[:5])}..."
+            )
+
+        # Get base64 encoded image (without data URI prefix)
+        b64_image = image_to_base64(image_path, max_size=(1024, 1024))
+
+        url = f"{self.base_url}/api/generate"
+        
+        payload = {
+            "model": self.model,
+            "prompt": prompt,
+            "images": [b64_image],  # Ollama expects array of base64 images
+            "stream": False,
+            "options": {
+                "temperature": self.temperature,
+                "num_predict": self.max_tokens,
+            },
+        }
+        
+        if system_prompt:
+            payload["system"] = system_prompt
+
+        response = requests.post(url, json=payload, timeout=300)
+        response.raise_for_status()
+        
+        result = response.json()
+        return result.get("response", "")
+
+    def list_models(self) -> list[dict]:
+        """List all available models in the local Ollama instance."""
+        import requests
+        
+        url = f"{self.base_url}/api/tags"
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        
+        return response.json().get("models", [])
+
+    def is_model_available(self) -> bool:
+        """Check if the configured model is available locally."""
+        try:
+            models = self.list_models()
+            model_names = [m.get("name", "") for m in models]
+            # Check both exact match and base name match
+            return any(
+                self.model == name or self.model == name.split(":")[0]
+                for name in model_names
+            )
+        except Exception:
+            return False
+
+
 def get_client(
     provider: str = "openai",
     model: Optional[str] = None,
@@ -202,12 +340,22 @@ def get_client(
     Factory function to get appropriate LLM client.
     
     Args:
-        provider: "openai", "google", or "anthropic"
+        provider: "openai", "google", "anthropic", or "ollama"
         model: Model name (uses default if not specified)
         **kwargs: Additional arguments for client
     
     Returns:
         Configured LLM client
+    
+    Examples:
+        # Cloud providers
+        client = get_client("openai", "gpt-4o-mini")
+        client = get_client("google", "gemini-1.5-flash")
+        client = get_client("anthropic", "claude-3-5-sonnet-20241022")
+        
+        # Local Ollama models
+        client = get_client("ollama", "llama3.2:3b")  # LLM
+        client = get_client("ollama", "llama3.2-vision:11b")  # VLM
     """
     if provider == "openai":
         return OpenAIClient(model=model or "gpt-4o-mini", **kwargs)
@@ -215,8 +363,10 @@ def get_client(
         return GeminiClient(model=model or "gemini-1.5-flash", **kwargs)
     elif provider == "anthropic":
         return AnthropicClient(model=model or "claude-3-5-sonnet-20241022", **kwargs)
+    elif provider == "ollama":
+        return OllamaClient(model=model or "llama3.2:3b", **kwargs)
     else:
-        raise ValueError(f"Unknown provider: {provider}")
+        raise ValueError(f"Unknown provider: {provider}. Supported: openai, google, anthropic, ollama")
 
 
 # === JSON Extraction Helpers ===

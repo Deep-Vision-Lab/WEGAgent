@@ -14,6 +14,7 @@ from .llm_utils import (
     OpenAIClient,
     GeminiClient,
     AnthropicClient,
+    OllamaClient,
     get_client,
     extract_json_from_response,
 )

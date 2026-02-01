@@ -42,7 +42,7 @@ class PartInfo(BaseModel):
 class ActionQuadrupleOutput(BaseModel):
     """
     Structured representation of an atomic action.
-    Format: <Action, Tool, Component, Hands>
+    Format: <Action, Tool, Component, Part, Hands>
     
     Actions are stored in execution order within the step.
     The part_id links to the corresponding entry in parts_all for visual localization.
@@ -50,7 +50,8 @@ class ActionQuadrupleOutput(BaseModel):
     action: str = Field(..., description="One-word action verb (e.g., 'remove', 'pull', 'insert')")
     precise_action: Optional[str] = Field(None, description="More precise/technical action verb (e.g., 'unscrew' instead of 'remove')")
     tool: Optional[str] = Field(None, description="Tool used for this action (null if bare hands)")
-    component: str = Field(..., description="Component being manipulated")
+    component: str = Field(..., description="Physical component being touched (what hand/tool physically contacts)")
+    part: Optional[str] = Field(None, description="The larger part containing the component (e.g., 'panel' for screws)")
     part_id: Optional[int] = Field(None, description="Reference to parts_all entry (matches PartInfo.part_id). Null if component not visually detected.")
     hands: int = Field(..., ge=0, le=2, description="Number of hands needed (0, 1, or 2)")
     full_action: str = Field(..., description="Original full action sentence")

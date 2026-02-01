@@ -17,6 +17,10 @@ from ..models.intermediate import (
     ToolsPerGuide,
     HandsPerGuide,
     PartsTextPerGuide,
+    # V2 models
+    PartsTextPerGuideV2,
+    ToolsPerGuideV2,
+    HandsPerGuideV2,
 )
 from ..utils.llm_utils import extract_json_from_response
 from ..utils.logger import get_logger, LogLevel
@@ -437,3 +441,320 @@ Only flag steps with ACTUAL issues. Provide SPECIFIC, ACTIONABLE feedback."""
         ]
         desc_lower = description.lower()
         return any(indicator in desc_lower for indicator in action_indicators)
+
+    # ==================== V2 Pipeline Review Methods ====================
+    
+    def review_actions_v2(
+        self,
+        guide: PreWEGGuide,
+        actions: ActionsPerGuide,
+    ) -> ReviewResult:
+        """
+        V2 Pipeline: Review Action Agent output.
+        
+        Validates:
+        - Actions are properly extracted
+        - Action verbs are correct
+        - Task names are appropriate
+        - Hints vs actions are properly separated
+        """
+        self.log(f"[V2] Reviewing Action Agent output")
+        
+        prompt = f"""Review the Action Agent output for this repair guide.
+
+Guide: {guide.title}
+Device Type: {guide.device_type}
+Total Steps: {guide.num_steps}
+
+=== VALIDATION CRITERIA ===
+1. Are actions properly extracted from descriptions?
+2. Is the action verb correct for each action?
+3. Is the task_name appropriate for each step?
+4. Are hints properly separated from actions?
+5. Are any steps missing actions that should have them?
+
+=== EXTRACTED DATA ===
+"""
+        import json
+        for step in guide.steps:
+            step_actions = None
+            for a in actions.steps:
+                if a.step_index == step.step_index:
+                    step_actions = a
+                    break
+            
+            prompt += f"""
+Step {step.step_index}:
+Description: \"\"\"{step.full_description}\"\"\"
+Extracted:
+  task_name: {step_actions.task_name if step_actions else None}
+  actions: {[q.full_action for q in step_actions.action_quadruples] if step_actions else []}
+  action_verbs: {[q.action for q in step_actions.action_quadruples] if step_actions else []}
+  hints: {step_actions.hints if step_actions else []}
+"""
+        
+        prompt += """
+Return JSON:
+{
+  "overall_valid": true/false,
+  "steps_needing_refinement": [list of step indices],
+  "steps": [
+    {
+      "step_index": 1,
+      "is_valid": true/false,
+      "issues": ["issue1"],
+      "feedback_for_action_agent": "Specific feedback to fix issues"
+    }
+  ],
+  "summary": "Brief assessment"
+}"""
+        
+        system_prompt = self.get_system_prompt()
+        response = self.client.complete(prompt, system_prompt=system_prompt)
+        return self.parse_response(response, guide)
+
+    def review_parts_text_v2(
+        self,
+        guide: PreWEGGuide,
+        actions: ActionsPerGuide,
+        parts_text: PartsTextPerGuideV2,
+    ) -> ReviewResult:
+        """
+        V2 Pipeline: Review Part Text Agent output.
+        
+        Validates:
+        - Components are PHYSICAL parts touched (not device names!)
+        - Parts are correctly identified as containers for components
+        - Component matches the action
+        """
+        self.log(f"[V2] Reviewing Part Text Agent output")
+        
+        device_type = guide.device_type
+        
+        prompt = f"""Review the Part Text Agent output for this repair guide.
+
+Guide: {guide.title}
+Device Type: {device_type.upper()}
+
+=== CRITICAL VALIDATION: COMPONENT vs PART ===
+
+**COMPONENT**: What does the person's hand (or tool) PHYSICALLY TOUCH?
+- "Unplug the {device_type}" → Component: "power cord plug" (what you grab)
+- "Remove screws from panel" → Component: "screw" (what you touch)
+- "Disconnect wire harness" → Component: "wire harness connector" (what you disconnect)
+
+**PART**: What larger assembly CONTAINS the component?
+- "Unplug the {device_type}" → Part: "power cord" or "rear of {device_type}"
+- "Remove screws from panel" → Part: "panel" or "access panel"
+- "Disconnect wire harness" → Part: "wire harness" or "control board area"
+
+COMMON ERRORS TO FLAG:
+- Component is "{device_type}" → WRONG! That's the device, not what you touch
+- Part equals component → Might be OK for small standalone items, but usually wrong
+- Part is too vague (e.g., just "{device_type}") → Should be more specific
+
+=== EXTRACTED DATA ===
+"""
+        for step in guide.steps:
+            step_parts = None
+            for p in parts_text.steps:
+                if p.step_index == step.step_index:
+                    step_parts = p
+                    break
+            
+            step_actions = None
+            for a in actions.steps:
+                if a.step_index == step.step_index:
+                    step_actions = a
+                    break
+            
+            prompt += f"""
+Step {step.step_index}:
+Description: \"\"\"{step.full_description}\"\"\"
+Actions: {[q.full_action for q in step_actions.action_quadruples] if step_actions else []}
+Extracted Parts: {step_parts.parts if step_parts else []}
+Components and Parts per action:
+"""
+            if step_parts and step_actions:
+                for comp in step_parts.components_per_action:
+                    action_text = step_actions.action_quadruples[comp.action_id].full_action if comp.action_id < len(step_actions.action_quadruples) else "?"
+                    prompt += f"  - Action {comp.action_id} ({action_text}):\n"
+                    prompt += f"      component=\"{comp.component}\"\n"
+                    prompt += f"      part=\"{comp.part or 'NOT SPECIFIED'}\"\n"
+        
+        prompt += f"""
+=== VALIDATION FOCUS ===
+For each component/part pair:
+1. Is the COMPONENT what you PHYSICALLY TOUCH? (Not "{device_type}")
+2. Is the PART a larger assembly that CONTAINS the component?
+3. Does the component-part relationship make sense?
+
+Return JSON:
+{{
+  "overall_valid": true/false,
+  "steps_needing_refinement": [list of step indices],
+  "steps": [
+    {{
+      "step_index": 1,
+      "is_valid": true/false,
+      "issues": ["Component '{device_type}' is the device, not what you touch", "Part should be more specific than '{device_type}'"],
+      "feedback_for_action_agent": "Specific feedback to fix component/part issues"
+    }}
+  ],
+  "summary": "Brief assessment"
+}}"""
+        
+        system_prompt = self.get_system_prompt()
+        response = self.client.complete(prompt, system_prompt=system_prompt)
+        result = self.parse_response(response, guide)
+        
+        # Map feedback to part_text_agent instead of action_agent
+        for step_result in result.steps:
+            if step_result.feedback_for_action_agent:
+                # Store as generic feedback - will be routed to PartTextAgent
+                step_result.feedback_for_action_agent = f"[PartTextAgent] {step_result.feedback_for_action_agent}"
+        
+        return result
+
+    def review_tools_v2(
+        self,
+        guide: PreWEGGuide,
+        actions: ActionsPerGuide,
+        tools: ToolsPerGuideV2,
+    ) -> ReviewResult:
+        """
+        V2 Pipeline: Review Tool Agent output.
+        
+        Validates:
+        - Tools match the description
+        - Tools exist in the global toolbox
+        - Tools are appropriate for the action
+        """
+        self.log(f"[V2] Reviewing Tool Agent output")
+        
+        toolbox_str = ", ".join(guide.toolbox) if guide.toolbox else "None specified"
+        
+        prompt = f"""Review the Tool Agent output for this repair guide.
+
+Guide: {guide.title}
+Global Toolbox: [{toolbox_str}]
+
+=== VALIDATION CRITERIA ===
+1. Does the tool match what's mentioned in the description?
+2. Is the tool in the global toolbox? (Use exact names when possible)
+3. Is the tool appropriate for the action? (screwdriver for "unscrew", etc.)
+4. If null, is it correct that bare hands are used?
+
+=== EXTRACTED DATA ===
+"""
+        for step in guide.steps:
+            step_tools = None
+            for t in tools.steps:
+                if t.step_index == step.step_index:
+                    step_tools = t
+                    break
+            
+            step_actions = None
+            for a in actions.steps:
+                if a.step_index == step.step_index:
+                    step_actions = a
+                    break
+            
+            prompt += f"""
+Step {step.step_index}:
+Description: \"\"\"{step.full_description}\"\"\"
+Tools per action:
+"""
+            if step_tools and step_actions:
+                for tool_info in step_tools.tools_per_action:
+                    action_text = step_actions.action_quadruples[tool_info.action_id].full_action if tool_info.action_id < len(step_actions.action_quadruples) else "?"
+                    prompt += f"  - Action {tool_info.action_id} ({action_text}): tool=\"{tool_info.tool}\"\n"
+        
+        prompt += """
+Return JSON:
+{
+  "overall_valid": true/false,
+  "steps_needing_refinement": [list of step indices],
+  "steps": [
+    {
+      "step_index": 1,
+      "is_valid": true/false,
+      "issues": ["issue"],
+      "feedback_for_tool_agent": "Specific feedback to fix tool issues"
+    }
+  ],
+  "summary": "Brief assessment"
+}"""
+        
+        system_prompt = self.get_system_prompt()
+        response = self.client.complete(prompt, system_prompt=system_prompt)
+        return self.parse_response(response, guide)
+
+    def review_hands_v2(
+        self,
+        guide: PreWEGGuide,
+        actions: ActionsPerGuide,
+        hands: HandsPerGuideV2,
+    ) -> ReviewResult:
+        """
+        V2 Pipeline: Review Hands Agent output.
+        
+        Validates:
+        - Hands estimates are reasonable
+        - 0 for info-only, 1 for simple, 2 for complex
+        """
+        self.log(f"[V2] Reviewing Hands Agent output")
+        
+        prompt = f"""Review the Hands Agent output for this repair guide.
+
+Guide: {guide.title}
+
+=== VALIDATION CRITERIA ===
+- 0 hands: Only for pure information/warnings with no physical action
+- 1 hand: Simple operations (using tool, pressing button, pulling connector)
+- 2 hands: Complex operations (hold + manipulate, lift heavy, stabilize + work)
+
+=== EXTRACTED DATA ===
+"""
+        for step in guide.steps:
+            step_hands = None
+            for h in hands.steps:
+                if h.step_index == step.step_index:
+                    step_hands = h
+                    break
+            
+            step_actions = None
+            for a in actions.steps:
+                if a.step_index == step.step_index:
+                    step_actions = a
+                    break
+            
+            prompt += f"""
+Step {step.step_index}:
+Description: \"\"\"{step.full_description}\"\"\"
+Hands per action:
+"""
+            if step_hands and step_actions:
+                for hands_info in step_hands.hands_per_action:
+                    action_text = step_actions.action_quadruples[hands_info.action_id].full_action if hands_info.action_id < len(step_actions.action_quadruples) else "?"
+                    prompt += f"  - Action {hands_info.action_id} ({action_text}): hands={hands_info.hands}\n"
+        
+        prompt += """
+Return JSON:
+{
+  "overall_valid": true/false,
+  "steps_needing_refinement": [list of step indices],
+  "steps": [
+    {
+      "step_index": 1,
+      "is_valid": true/false,
+      "issues": ["issue"],
+      "feedback_for_hands_agent": "Specific feedback to fix hands issues"
+    }
+  ],
+  "summary": "Brief assessment"
+}"""
+        
+        system_prompt = self.get_system_prompt()
+        response = self.client.complete(prompt, system_prompt=system_prompt)
+        return self.parse_response(response, guide)

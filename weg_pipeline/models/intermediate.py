@@ -93,14 +93,18 @@ class PartsTextPerGuide(BaseModel):
 # === Part Vision Agent Output ===
 
 class PartBBoxResult(BaseModel):
-    """Bounding box detection result for a single part."""
-    name: str = Field(..., description="Part name")
-    bbox: list[int] = Field(..., min_length=4, max_length=4, description="[x1, y1, x2, y2]")
+    """Bounding box detection result for a component (and optionally its containing part)."""
+    name: str = Field(..., description="Component name")
+    bbox: list[int] = Field(..., min_length=4, max_length=4, description="[x1, y1, x2, y2] for the component")
     confidence: Optional[float] = Field(None, ge=0.0, le=1.0)
     marked_by_annotation: bool = Field(
         default=False, 
         description="Whether this part was identified via a red circle or visual annotation"
     )
+    # V2 fields for containing part
+    part_name: Optional[str] = Field(None, description="Name of the containing part (e.g., 'panel')")
+    part_bbox: Optional[list[int]] = Field(None, min_length=4, max_length=4, description="[x1, y1, x2, y2] for the containing part")
+    part_confidence: Optional[float] = Field(None, ge=0.0, le=1.0)
 
 
 class PartVisionResult(BaseModel):
@@ -117,6 +121,86 @@ class PartsVisionPerGuide(BaseModel):
     """Complete part vision output for all steps."""
     guide_id: int
     steps: list[PartVisionResult] = Field(default_factory=list)
+
+
+# === V2 Pipeline: Per-Action Models ===
+
+class ComponentPerAction(BaseModel):
+    """Component and part extraction for a single action (V2 pipeline)."""
+    action_id: int = Field(..., description="Index into action_quadruples (0-based)")
+    component: str = Field(..., description="Physical component being touched/manipulated (what hand/tool touches)")
+    part: Optional[str] = Field(None, description="The larger part containing the component (context)")
+
+
+class ToolPerAction(BaseModel):
+    """Tool identification for a single action (V2 pipeline)."""
+    action_id: int = Field(..., description="Index into action_quadruples (0-based)")
+    tool: Optional[str] = Field(None, description="Tool name or None if bare hands")
+
+
+class HandsPerAction(BaseModel):
+    """Hands estimation for a single action (V2 pipeline)."""
+    action_id: int = Field(..., description="Index into action_quadruples (0-based)")
+    hands: int = Field(..., ge=0, le=2, description="Number of hands: 0, 1, or 2")
+
+
+# === V2 Part Text Agent Output (Enhanced) ===
+
+class PartTextResultV2(BaseModel):
+    """Output from Part Text Agent for a single step (V2 pipeline)."""
+    step_index: int
+    device_type: str = Field(default="appliance", description="Type of device being repaired")
+    parts: list[str] = Field(default_factory=list, description="Part names extracted from text")
+    primary_part: Optional[str] = Field(None, description="Main part being manipulated")
+    components_per_action: list[ComponentPerAction] = Field(
+        default_factory=list,
+        description="Physical component touched for each action"
+    )
+
+
+class PartsTextPerGuideV2(BaseModel):
+    """Complete part text extraction output for all steps (V2 pipeline)."""
+    guide_id: int
+    device_type: str = Field(default="appliance", description="Device type for the guide")
+    steps: list[PartTextResultV2] = Field(default_factory=list)
+
+
+# === V2 Tool Agent Output (Enhanced) ===
+
+class ToolExtractionResultV2(BaseModel):
+    """Output from Tool Agent for a single step (V2 pipeline)."""
+    step_index: int
+    tools: list[str] = Field(default_factory=list, description="Tools used in this step")
+    primary_tool: Optional[str] = Field(None, description="Main tool for this step")
+    tools_per_action: list[ToolPerAction] = Field(
+        default_factory=list,
+        description="Tool for each action"
+    )
+
+
+class ToolsPerGuideV2(BaseModel):
+    """Complete tool extraction output for all steps (V2 pipeline)."""
+    guide_id: int
+    global_toolbox: list[str] = Field(default_factory=list, description="Tools from guide header")
+    steps: list[ToolExtractionResultV2] = Field(default_factory=list)
+
+
+# === V2 Hands Agent Output (Enhanced) ===
+
+class HandsEstimationResultV2(BaseModel):
+    """Output from Hands Agent for a single step (V2 pipeline)."""
+    step_index: int
+    hands: int = Field(default=1, ge=0, le=2, description="Step-level hands (backward compat)")
+    hands_per_action: list[HandsPerAction] = Field(
+        default_factory=list,
+        description="Hands for each action"
+    )
+
+
+class HandsPerGuideV2(BaseModel):
+    """Complete hands estimation output for all steps (V2 pipeline)."""
+    guide_id: int
+    steps: list[HandsEstimationResultV2] = Field(default_factory=list)
 
 
 # === Pipeline State (for LangGraph) ===

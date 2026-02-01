@@ -1,9 +1,54 @@
 """
 Pydantic models for Pre-WEG data (input from crawler)
 """
+import re
 from typing import Any, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, computed_field
+
+
+# Common appliance/device keywords for extraction
+DEVICE_KEYWORDS = [
+    "refrigerator", "fridge", "freezer",
+    "dishwasher", 
+    "washing machine", "washer", "dryer",
+    "microwave", "oven", "stove", "range",
+    "air conditioner", "ac unit", "hvac",
+    "garbage disposal", "disposal",
+    "ice maker", "icemaker",
+    "water heater",
+    "furnace", "boiler",
+    "vacuum", "vacuum cleaner",
+    "blender", "mixer", "food processor",
+    "coffee maker", "coffeemaker", "espresso machine",
+    "toaster", "toaster oven",
+]
+
+
+def extract_device_type(title: str, device: Optional[str] = None) -> str:
+    """
+    Extract device type from guide title or device field.
+    
+    Examples:
+        "Samsung Refrigerator Ice Maker Replacement" -> "refrigerator"
+        "GE Dishwasher Spray Arm Replacement" -> "dishwasher"
+    """
+    # Try device field first
+    if device:
+        device_lower = device.lower()
+        for keyword in DEVICE_KEYWORDS:
+            if keyword in device_lower:
+                # Return the singular main word
+                return keyword.split()[0] if " " in keyword else keyword
+    
+    # Try title
+    title_lower = title.lower()
+    for keyword in DEVICE_KEYWORDS:
+        if keyword in title_lower:
+            return keyword.split()[0] if " " in keyword else keyword
+    
+    # Fallback
+    return "appliance"
 
 
 class StepImage(BaseModel):
@@ -36,6 +81,11 @@ class PreWEGGuide(BaseModel):
     @property
     def num_steps(self) -> int:
         return len(self.steps)
+    
+    @property
+    def device_type(self) -> str:
+        """Extract device type from title/device field."""
+        return extract_device_type(self.title, self.device)
 
     def get_step(self, index: int) -> Optional[PreWEGStep]:
         """Get step by 1-based index."""

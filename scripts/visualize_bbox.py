@@ -240,11 +240,8 @@ def visualize(
     console.print(f"[bold cyan]Loading WEG: {weg_path}[/bold cyan]")
     weg = load_weg(weg_file)
     
-    # Base path for resolving relative image paths
-    # Go up from WEG file to find workspace root
-    base_path = weg_file.parent
-    while base_path.name not in ["WEGv2", "DIYCrawler"] and base_path.parent != base_path:
-        base_path = base_path.parent
+    # Use CWD as workspace root (image paths in WEG are relative to project root)
+    base_path = Path.cwd()
     
     # Filter steps if specified
     weg_steps = weg.get("steps", [])
@@ -317,6 +314,207 @@ def summary(
                 console.print(f"    - {q.get('action')} {q.get('component')} {part_ref}")
         
         console.print()
+
+
+@app.command()
+def online_vis(
+    weg_path: str = typer.Argument(..., help="Path to WEG JSON file"),
+    steps: str = typer.Option(None, "--steps", "-s", help="Comma-separated list of step IDs to visualize (default: all)"),
+    primary_only: bool = typer.Option(False, "--primary-only", "-p", help="Only show primary part bbox"),
+    all_only: bool = typer.Option(False, "--all-only", "-a", help="Only show parts_all bboxes"),
+):
+    """
+    Interactively view bounding boxes from a WEG file using OpenCV.
+
+    Navigate with ENTER (next) and P (prev). Press Q to quit.
+    """
+    try:
+        import cv2
+        import numpy as np
+    except ImportError:
+        console.print("[red]OpenCV not installed. Run: pip install opencv-python numpy[/red]")
+        raise typer.Exit(1)
+
+    weg_file = Path(weg_path)
+    if not weg_file.exists():
+        console.print(f"[red]WEG file not found: {weg_path}[/red]")
+        raise typer.Exit(1)
+
+    console.print(f"[bold cyan]Loading WEG: {weg_path}[/bold cyan]")
+    weg = load_weg(weg_file)
+
+    # Use CWD as workspace root (image paths in WEG are relative to project root)
+    base_path = Path.cwd()
+
+    weg_steps = weg.get("steps", [])
+    if steps:
+        step_ids = set(int(s.strip()) for s in steps.split(","))
+        weg_steps = [s for s in weg_steps if s.get("step_id") in step_ids]
+
+    show_primary = not all_only
+    show_all = not primary_only
+
+    # Each frame: dict with cv_img, pil_img, label, part_ref (direct ref into weg dict)
+    frames = []
+
+    def render_cv(pil_img, part_ref):
+        """Render PIL image with current bbox to an OpenCV BGR array."""
+        annotated = draw_bbox_on_image(pil_img, [part_ref])
+        return cv2.cvtColor(np.array(annotated.convert("RGB")), cv2.COLOR_RGB2BGR)
+
+    console.print("[bold]Preparing images...[/bold]")
+    for step in track(weg_steps, description="Loading..."):
+        step_id = step.get("step_id", 0)
+        task_name = step.get("task_name", "")
+
+        # Collect all candidate parts per image
+        images_parts: dict[str, list[dict]] = {}
+
+        if show_primary:
+            primary_part = step.get("primary_part", {})
+            if primary_part and primary_part.get("image_path"):
+                img_key = primary_part["image_path"]
+                images_parts.setdefault(img_key, []).append(primary_part)
+
+        if show_all:
+            for part in step.get("parts_all", []):
+                img_key = part.get("image_path")
+                if img_key:
+                    images_parts.setdefault(img_key, []).append(part)
+
+        # Keep only the single best-confidence part per image
+        best_parts = {
+            img_key: max(parts, key=lambda p: p.get("confidence", 0))
+            for img_key, parts in images_parts.items()
+            if parts
+        }
+
+        for img_rel_path, part_ref in best_parts.items():
+            img_path = base_path / img_rel_path
+            if not img_path.exists():
+                img_path = Path(img_rel_path)
+            if not img_path.exists():
+                console.print(f"[yellow]Image not found: {img_rel_path}[/yellow]")
+                continue
+
+            try:
+                pil_img = Image.open(img_path).convert("RGB")
+                part_name = part_ref.get("name", "unknown")
+                confidence = part_ref.get("confidence", 0)
+                label = f"Step {step_id}: {task_name}  |  {part_name} ({confidence:.0%})  |  {img_path.name}"
+                frames.append({
+                    "cv_img": render_cv(pil_img, part_ref),
+                    "pil_img": pil_img,
+                    "label": label,
+                    "part_ref": part_ref,   # direct reference into weg dict
+                    "step_id": step_id,
+                })
+            except Exception as e:
+                console.print(f"[red]Error processing {img_path}: {e}[/red]")
+
+    if not frames:
+        console.print("[red]No images to display.[/red]")
+        raise typer.Exit(1)
+
+    console.print(f"[bold green]Loaded {len(frames)} image(s). ENTER: next  P: prev  E: annotate  Q: quit[/bold green]")
+
+    strip_h = 46
+    idx = 0
+    window_name = "WEG Visualizer"
+    cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+    cv2.resizeWindow(window_name, 640, 520)
+
+    def make_strip(w, hint, label, accent=(0, 180, 160)):
+        strip = np.zeros((strip_h, w, 3), dtype=np.uint8)
+        strip[:] = (18, 18, 18)
+        strip[0:2, :] = accent
+        cv2.putText(strip, hint, (10, 17), cv2.FONT_HERSHEY_SIMPLEX, 0.36, (110, 110, 110), 1, cv2.LINE_AA)
+        cv2.putText(strip, label, (10, 36), cv2.FONT_HERSHEY_SIMPLEX, 0.38, (210, 210, 210), 1, cv2.LINE_AA)
+        return strip
+
+    while True:
+        frame = frames[idx]
+        cv_img = frame["cv_img"]
+        h, w = cv_img.shape[:2]
+
+        strip = make_strip(
+            w,
+            hint="ENTER: next   P: prev   E: annotate bbox   Q: quit",
+            label=f"[{idx + 1}/{len(frames)}]  {frame['label']}",
+        )
+        cv2.imshow(window_name, np.vstack([cv_img, strip]))
+
+        key = cv2.waitKey(0) & 0xFF
+
+        if key == ord('q'):
+            break
+        elif key == 13:                 # Enter → next
+            idx = min(idx + 1, len(frames) - 1)
+        elif key == ord('p'):           # P → prev
+            idx = max(idx - 1, 0)
+        elif key == ord('e'):           # E → annotate
+            part_ref = frame["part_ref"]
+            pil_img  = frame["pil_img"]
+
+            # Annotation state shared with mouse callback
+            ann = {"drawing": False, "x0": 0, "y0": 0, "x1": 0, "y1": 0, "done": False}
+
+            def mouse_cb(event, x, y, flags, param):
+                yc = min(y, h - 1)  # clamp to image area, ignore strip
+                if event == cv2.EVENT_LBUTTONDOWN:
+                    ann.update(drawing=True, x0=x, y0=yc, x1=x, y1=yc, done=False)
+                elif event == cv2.EVENT_MOUSEMOVE and ann["drawing"]:
+                    ann["x1"], ann["y1"] = x, yc
+                elif event == cv2.EVENT_LBUTTONUP and ann["drawing"]:
+                    ann["drawing"] = False
+                    ann["x1"], ann["y1"] = x, yc
+                    ann["done"] = True
+
+            cv2.setMouseCallback(window_name, mouse_cb)
+
+            while True:
+                preview = np.array(pil_img)[:, :, ::-1].copy()  # PIL RGB → BGR
+                if ann["x0"] != ann["x1"] or ann["y0"] != ann["y1"]:
+                    cv2.rectangle(
+                        preview,
+                        (min(ann["x0"], ann["x1"]), min(ann["y0"], ann["y1"])),
+                        (max(ann["x0"], ann["x1"]), max(ann["y0"], ann["y1"])),
+                        (0, 220, 100), 2,
+                    )
+                ann_strip = make_strip(
+                    w,
+                    hint="Click and drag to draw bbox   ESC to cancel",
+                    label=f"[ANNOTATE]  {frame['label']}",
+                    accent=(0, 140, 255),  # orange accent in edit mode
+                )
+                cv2.imshow(window_name, np.vstack([preview, ann_strip]))
+
+                k = cv2.waitKey(20) & 0xFF
+                if k == 27:             # ESC → cancel
+                    break
+                if ann["done"]:
+                    x0 = min(ann["x0"], ann["x1"])
+                    y0 = min(ann["y0"], ann["y1"])
+                    x1 = max(ann["x0"], ann["x1"])
+                    y1 = max(ann["y0"], ann["y1"])
+                    if x1 > x0 and y1 > y0:
+                        # Update the bbox directly in the weg dict (part_ref is a live reference)
+                        part_ref["bbox"] = {"x1": x0, "y1": y0, "x2": x1, "y2": y1}
+                        # Re-render the frame with the new bbox
+                        frame["cv_img"] = render_cv(pil_img, part_ref)
+                        # Save weg back to disk
+                        with open(weg_file, "w") as f:
+                            json.dump(weg, f, indent=2)
+                        console.print(
+                            f"[bold green]Saved new bbox for '{part_ref.get('name')}' "
+                            f"in step {frame['step_id']} → {weg_file.name}[/bold green]"
+                        )
+                    break
+
+            # Remove mouse callback when done
+            cv2.setMouseCallback(window_name, lambda *a: None)
+
+    cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":

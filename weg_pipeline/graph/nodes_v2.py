@@ -858,8 +858,9 @@ def combiner_node_v2(state: PipelineStateV2) -> dict[str, Any]:
         # Save WEG
         guide_path = state.get("guide_path", "")
         if guide_path:
+            guide_id = weg.get("header", {}).get("guide_id", "")
             weg_name = state["suffix"] + state["config"]["llm_model"] + "_" + state["config"]["vlm_model"]
-            weg_path = get_output_path(guide_path, f"_{weg_name}_WEG_v2.json")
+            weg_path = get_output_path(guide_path, f"{guide_id}_{weg_name}_WEG_v2.json")
             save_json(weg_path, weg)
             console.print(f"[bold green]V2 WEG saved to: {weg_path}[/bold green]")
             return {

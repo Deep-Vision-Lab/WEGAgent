@@ -32,8 +32,8 @@ console = Console()
 def run(
     guide: str = typer.Option(None, "--guide", "-g", help="Path to specific guide JSON"),
     root: str = typer.Option("data/preweg", "--root", "-r", help="Root directory to scan for guides"),
-    llm_model: str = typer.Option("claude-3-5-haiku-20241022", "--llm", help="LLM model for text agents"),
-    vlm_model: str = typer.Option("claude-3-5-haiku-20241022", "--vlm", help="VLM model for vision agents"),
+    llm_model: str = typer.Option("claude-sonnet-4-5-20250929", "--llm", help="LLM model for text agents"),
+    vlm_model: str = typer.Option("claude-sonnet-4-5-20250929", "--vlm", help="VLM model for vision agents"),
     llm_provider: str = typer.Option(None, "--llm-provider", help="LLM provider (openai/anthropic/google/ollama). Auto-detected if not set."),
     vlm_provider: str = typer.Option(None, "--vlm-provider", help="VLM provider (openai/anthropic/google/ollama). Auto-detected if not set."),
     sequential: bool = typer.Option(False, "--sequential", "-s", help="Run agents sequentially (for debugging)"),
@@ -112,12 +112,13 @@ def run(
         console.print(f"[bold]Guide: {guide_path}[/bold]")
         console.print('='*60)
         
-        # Check for existing WEG (use appropriate suffix for V2)
-        suffix = "_WEG_v2.json" if v2 else "_WEG.json"
-        weg_path = str(guide_path).replace("_preWEG.json", suffix).replace(".json", suffix)
-        if Path(weg_path).exists():
+        # Check for existing WEG — filename is {guide_id}_WEG.json (or _WEG_v2.json)
+        guide_id  = guide_path.stem.split("_")[0]
+        suffix    = "_WEG_v2.json" if v2 else "_WEG.json"
+        weg_path  = guide_path.parent / f"{guide_id}{suffix}"
+        if weg_path.exists():
             console.print(f"[yellow]WEG already exists at {weg_path}, skipping.[/yellow]")
-            continue 
+            continue
 
         try:
             if v2:

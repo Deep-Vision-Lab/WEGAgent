@@ -320,6 +320,21 @@ def crawl_guide(
     return convert_guide_to_preweg(guide, guides_dir, imgs_dir)
 
 
+def get_existing_guide_ids(output_root: Path) -> set[int]:
+    """
+    Scan output_root for all already-crawled guide IDs.
+    Guide JSON filenames start with the guide ID (e.g. 113759_title.json).
+    """
+    existing = set()
+    for json_file in output_root.rglob("*.json"):
+        try:
+            guide_id = int(json_file.stem.split("_")[0])
+            existing.add(guide_id)
+        except (ValueError, IndexError):
+            pass
+    return existing
+
+
 def crawl_guides(
     output_root: Path,
     device_key: str,
@@ -328,13 +343,16 @@ def crawl_guides(
 ) -> list[Path]:
     """
     Search and crawl multiple guides.
-    
+
+    Skips any guide whose ID already exists locally and fetches
+    additional candidates until the requested limit is reached.
+
     Args:
         output_root: Root directory for output
         device_key: Device category (from DEVICE_KEYWORDS)
         keyword: Search keyword (uses default for device if not provided)
-        limit: Maximum number of guides to crawl
-    
+        limit: Maximum number of NEW guides to crawl
+
     Returns:
         List of paths to saved pre-WEG JSONs
     """
@@ -348,22 +366,42 @@ def crawl_guides(
 
     keyword = keyword or DEVICE_KEYWORDS[device_key]
 
+    existing_ids = get_existing_guide_ids(output_root)
+    if existing_ids:
+        console.print(f"[cyan]Found {len(existing_ids)} already-crawled guide(s) locally — will skip them[/cyan]")
+
+    # Fetch a larger candidate pool so we have room to skip duplicates
+    fetch_limit = limit + len(existing_ids) + 10
     console.print(f"[cyan]Searching guides: keyword={keyword!r}, device={device_key}, limit={limit}[/cyan]")
-    metas = search_guides(keyword, limit)
+    metas = search_guides(keyword, fetch_limit)
     console.print(f"[cyan]Found {len(metas)} guide candidates[/cyan]")
 
     saved_paths = []
     for meta in metas:
-        guide_id = meta["guideid"]
-        console.print(f"[cyan]Fetching guide {guide_id}: {meta.get('title', 'Unknown')}[/cyan]")
+        if len(saved_paths) >= limit:
+            break
 
+        guide_id = meta["guideid"]
+
+        if guide_id in existing_ids:
+            console.print(f"[yellow][SKIP] Guide {guide_id} already exists locally[/yellow]")
+            continue
+
+        console.print(f"[cyan]Fetching guide {guide_id}: {meta.get('title', 'Unknown')}[/cyan]")
         try:
             guide = fetch_guide(guide_id)
             category = guide.get("category") or meta.get("category") or f"guide_{guide_id}"
             guides_dir, imgs_dir = build_output_paths(output_root, device_key, category.strip())
             saved = convert_guide_to_preweg(guide, guides_dir, imgs_dir)
             saved_paths.append(saved)
+            existing_ids.add(guide_id)  # prevent re-fetching within the same run
         except Exception as e:
             console.print(f"[red][ERROR] Failed to crawl guide {guide_id}: {e}[/red]")
+
+    if len(saved_paths) < limit:
+        console.print(
+            f"[yellow][WARN] Only found {len(saved_paths)}/{limit} new guides "
+            f"(others were already crawled or unavailable)[/yellow]"
+        )
 
     return saved_paths

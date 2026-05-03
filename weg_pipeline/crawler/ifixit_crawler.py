@@ -27,6 +27,58 @@ DEVICE_KEYWORDS = {
     "vacuum": "Vacuum",
 }
 
+# Keyword variations per device — tried in order when the primary keyword is exhausted
+DEVICE_KEYWORD_VARIATIONS = {
+    "refrigerators": [
+        "Refrigerator repair", "Refrigerator door", "Refrigerator ice maker",
+        "Refrigerator compressor", "Refrigerator filter", "Refrigerator thermostat",
+        "GE Refrigerator", "Samsung Refrigerator", "LG Refrigerator",
+        "Whirlpool Refrigerator", "Bosch Refrigerator", "Maytag Refrigerator",
+        "Frigidaire Refrigerator", "KitchenAid Refrigerator",
+    ],
+    "washing_machines": [
+        "Washing Machine repair", "Washing Machine drum", "Washing Machine pump",
+        "Front load washer", "Top load washer", "Washer drain",
+        "Samsung Washer", "LG Washer", "Whirlpool Washer",
+        "Bosch Washing Machine", "Maytag Washer", "GE Washer",
+    ],
+    "dishwashers": [
+        "Dishwasher repair", "Dishwasher door", "Dishwasher pump",
+        "Dishwasher spray arm", "Dishwasher drain", "Dishwasher filter",
+        "Bosch Dishwasher", "Samsung Dishwasher", "Whirlpool Dishwasher",
+        "GE Dishwasher", "KitchenAid Dishwasher", "Miele Dishwasher",
+    ],
+    "dryers": [
+        "Clothes Dryer repair", "Laundry Dryer", "Dryer heating element",
+        "Dryer drum belt", "Dryer thermostat", "Dryer vent",
+        "Samsung Dryer", "LG Dryer", "Whirlpool Dryer",
+        "GE Dryer", "Maytag Dryer", "Electrolux Dryer",
+    ],
+    "clothes_iron": [
+        "Clothes iron repair", "Steam iron", "Iron soleplate",
+        "Iron thermostat", "Rowenta iron", "Philips iron",
+        "Braun iron", "Black Decker iron",
+    ],
+    "microwave": [
+        "Microwave repair", "Microwave door", "Microwave turntable",
+        "Microwave magnetron", "Microwave fuse", "Microwave control board",
+        "GE Microwave", "Samsung Microwave", "Panasonic Microwave",
+        "LG Microwave", "Whirlpool Microwave", "Sharp Microwave",
+    ],
+    "oven": [
+        "Oven repair", "Oven heating element", "Oven thermostat",
+        "Oven door hinge", "Oven control board", "Oven igniter",
+        "GE Oven", "Samsung Oven", "Whirlpool Oven",
+        "Bosch Oven", "KitchenAid Oven", "Maytag Oven",
+    ],
+    "vacuum": [
+        "Vacuum cleaner repair", "Vacuum motor", "Vacuum filter",
+        "Vacuum belt", "Vacuum brush roll", "Robot vacuum",
+        "Dyson Vacuum", "Roomba", "Shark Vacuum",
+        "Hoover Vacuum", "Bissell Vacuum", "Miele Vacuum",
+    ],
+}
+
 
 def fetch_json(url: str, params: Optional[dict] = None, timeout: int = 20) -> dict:
     """Fetch JSON from URL with error handling."""
@@ -75,22 +127,28 @@ def search_guides_paginated(keyword: str, offset: int = 0, page_size: int = 20) 
     Returns:
         List of dicts with: guideid, title, category, url
     """
-    url = f"{BASE_URL}/search/{keyword}"
-    params = {"doctypes": "guide", "limit": page_size, "offset": offset}
+    url = f"{BASE_URL}/search"
+    params = {"query": keyword, "doctypes": "guide", "limit": page_size, "offset": offset}
     try:
         data = fetch_json(url, params=params)
-    except Exception:
+    except Exception as e:
+        console.print(f"[red][ERROR] Paginated search failed: {e}[/red]")
         return []
 
+    raw_results = data.get("results", [])
+    console.print(f"[cyan]  Paginated search returned {len(raw_results)} raw results[/cyan]")
+
     results = []
-    for r in data.get("results", []):
-        if r.get("dataType") != "guide":
+    for r in raw_results:
+        # iFixit search returns guides under dataType "guide" or type "guide"
+        dtype = r.get("dataType") or r.get("type") or ""
+        if dtype.lower() not in ("guide", ""):
             continue
-        guide_id = r.get("guideid")
+        guide_id = r.get("guideid") or r.get("id")
         if guide_id is None:
             continue
         results.append({
-            "guideid": guide_id,
+            "guideid": int(guide_id),
             "title": r.get("title", ""),
             "category": r.get("category"),
             "url": r.get("url"),
@@ -403,38 +461,42 @@ def crawl_guides(
 
     console.print(f"[cyan]Searching guides: keyword={keyword!r}, device={device_key}, limit={limit}[/cyan]")
 
-    # Phase 1: suggest endpoint (fast, no pagination)
-    suggest_results = search_guides(keyword, limit + len(existing_ids) + 10)
+    # Build keyword list: primary first, then variations
+    variations = list(DEVICE_KEYWORD_VARIATIONS.get(device_key, []))
+    keywords_to_try = [keyword] + [v for v in variations if v != keyword]
+
     seen_ids: set[int] = set()
     candidate_queue: list[dict] = []
-    for m in suggest_results:
-        gid = m["guideid"]
-        if gid not in seen_ids:
-            seen_ids.add(gid)
-            candidate_queue.append(m)
+    keyword_idx = 0
 
-    saved_paths: list[Path] = []
-    page_offset = 0
-    page_size   = 20
-    exhausted   = False
-
-    while len(saved_paths) < limit and not exhausted:
-        # Refill queue from paginated search when suggest results run out
-        if not candidate_queue:
-            console.print(f"[cyan]Fetching more candidates (offset={page_offset})…[/cyan]")
-            page = search_guides_paginated(keyword, offset=page_offset, page_size=page_size)
-            page_offset += page_size
-            if not page:
-                exhausted = True
-                break
-            for m in page:
+    def refill_queue():
+        nonlocal keyword_idx
+        while keyword_idx < len(keywords_to_try):
+            kw = keywords_to_try[keyword_idx]
+            keyword_idx += 1
+            console.print(f"[cyan]Trying keyword: {kw!r}[/cyan]")
+            results = search_guides(kw, 30)
+            added = 0
+            for m in results:
                 gid = m["guideid"]
                 if gid not in seen_ids:
                     seen_ids.add(gid)
                     candidate_queue.append(m)
+                    added += 1
+            if added:
+                return True
+        return False
+
+    refill_queue()
+
+    saved_paths: list[Path] = []
+
+    while len(saved_paths) < limit:
+        if not candidate_queue:
+            if not refill_queue():
+                break
 
         if not candidate_queue:
-            exhausted = True
             break
 
         meta     = candidate_queue.pop(0)
@@ -458,7 +520,7 @@ def crawl_guides(
     if len(saved_paths) < limit:
         console.print(
             f"[yellow][WARN] Only found {len(saved_paths)}/{limit} new guides "
-            f"(others were already crawled or unavailable)[/yellow]"
+            f"(all keyword variations exhausted)[/yellow]"
         )
 
     return saved_paths

@@ -15,69 +15,63 @@ console = Console()
 
 BASE_URL = "https://www.ifixit.com/api/2.0"
 
-# Supported device categories
+# Supported device categories — maps key → (primary search term, accepted title words)
 DEVICE_KEYWORDS = {
-    "refrigerators": "Refrigerator",
+    "refrigerators":   "Refrigerator",
     "washing_machines": "Washer",
-    "dishwashers": "Dishwasher",
-    "dryers": "Dryer",
-    "clothes_iron": "Clothes iron",
-    "microwave": "Microwave",
-    "oven": "Oven",
-    "vacuum": "Vacuum",
+    "dishwashers":     "Dishwasher",
+    "dryers":          "Clothes Dryer",
+    "clothes_iron":    "Clothes Iron",
+    "microwave":       "Microwave",
+    "oven":            "Oven",
+    "vacuum":          "Vacuum Cleaner",
 }
 
-# Keyword variations per device — tried in order when the primary keyword is exhausted
-DEVICE_KEYWORD_VARIATIONS = {
-    "refrigerators": [
-        "Refrigerator repair", "Refrigerator door", "Refrigerator ice maker",
-        "Refrigerator compressor", "Refrigerator filter", "Refrigerator thermostat",
-        "GE Refrigerator", "Samsung Refrigerator", "LG Refrigerator",
-        "Whirlpool Refrigerator", "Bosch Refrigerator", "Maytag Refrigerator",
-        "Frigidaire Refrigerator", "KitchenAid Refrigerator",
-    ],
-    "washing_machines": [
-        "Washing Machine repair", "Washing Machine drum", "Washing Machine pump",
-        "Front load washer", "Top load washer", "Washer drain",
-        "Samsung Washer", "LG Washer", "Whirlpool Washer",
-        "Bosch Washing Machine", "Maytag Washer", "GE Washer",
-    ],
-    "dishwashers": [
-        "Dishwasher repair", "Dishwasher door", "Dishwasher pump",
-        "Dishwasher spray arm", "Dishwasher drain", "Dishwasher filter",
-        "Bosch Dishwasher", "Samsung Dishwasher", "Whirlpool Dishwasher",
-        "GE Dishwasher", "KitchenAid Dishwasher", "Miele Dishwasher",
-    ],
-    "dryers": [
-        "Clothes Dryer repair", "Laundry Dryer", "Dryer heating element",
-        "Dryer drum belt", "Dryer thermostat", "Dryer vent",
-        "Samsung Dryer", "LG Dryer", "Whirlpool Dryer",
-        "GE Dryer", "Maytag Dryer", "Electrolux Dryer",
-    ],
-    "clothes_iron": [
-        "Clothes iron repair", "Steam iron", "Iron soleplate",
-        "Iron thermostat", "Rowenta iron", "Philips iron",
-        "Braun iron", "Black Decker iron",
-    ],
-    "microwave": [
-        "Microwave repair", "Microwave door", "Microwave turntable",
-        "Microwave magnetron", "Microwave fuse", "Microwave control board",
-        "GE Microwave", "Samsung Microwave", "Panasonic Microwave",
-        "LG Microwave", "Whirlpool Microwave", "Sharp Microwave",
-    ],
-    "oven": [
-        "Oven repair", "Oven heating element", "Oven thermostat",
-        "Oven door hinge", "Oven control board", "Oven igniter",
-        "GE Oven", "Samsung Oven", "Whirlpool Oven",
-        "Bosch Oven", "KitchenAid Oven", "Maytag Oven",
-    ],
-    "vacuum": [
-        "Vacuum cleaner repair", "Vacuum motor", "Vacuum filter",
-        "Vacuum belt", "Vacuum brush roll", "Robot vacuum",
-        "Dyson Vacuum", "Roomba", "Shark Vacuum",
-        "Hoover Vacuum", "Bissell Vacuum", "Miele Vacuum",
-    ],
+# Words that MUST appear in a result title/category for it to be accepted.
+# Any variation containing one of these words is valid — no hardcoding needed.
+DEVICE_ACCEPT_WORDS = {
+    "refrigerators":   ["refrigerator", "fridge"],
+    "washing_machines": ["washer", "washing machine"],
+    "dishwashers":     ["dishwasher"],
+    "dryers":          ["dryer", "clothes dryer", "laundry dryer"],
+    "clothes_iron":    ["iron", "clothes iron", "steam iron"],
+    "microwave":       ["microwave"],
+    "oven":            ["oven", "range", "stove"],
+    "vacuum":          ["vacuum"],
 }
+
+# Appliance brands used to generate search variations dynamically
+_APPLIANCE_BRANDS = [
+    "GE", "Samsung", "LG", "Whirlpool", "Bosch", "Maytag",
+    "Frigidaire", "KitchenAid", "Electrolux", "Miele", "Haier",
+    "Kenmore", "Amana", "Speed Queen", "Fisher & Paykel",
+]
+
+# Generic repair terms to combine with the primary keyword
+_REPAIR_TERMS = [
+    "repair", "not working", "door", "filter", "motor",
+    "pump", "thermostat", "control board", "belt", "drum",
+]
+
+
+def _build_keyword_variations(device_key: str) -> list[str]:
+    """Generate search keyword variations for a device from brands + repair terms."""
+    primary = DEVICE_KEYWORDS[device_key]
+    variations: list[str] = []
+    # brand + device (e.g. "GE Refrigerator")
+    for brand in _APPLIANCE_BRANDS:
+        variations.append(f"{brand} {primary}")
+    # device + repair term (e.g. "Refrigerator door")
+    for term in _REPAIR_TERMS:
+        variations.append(f"{primary} {term}")
+    return variations
+
+
+def _is_accepted(meta: dict, device_key: str) -> bool:
+    """Return True if a guide result is relevant to the device category."""
+    accept_words = DEVICE_ACCEPT_WORDS.get(device_key, [])
+    text = f"{meta.get('title', '')} {meta.get('category', '')}".lower()
+    return any(w in text for w in accept_words)
 
 
 def fetch_json(url: str, params: Optional[dict] = None, timeout: int = 20) -> dict:
@@ -461,8 +455,8 @@ def crawl_guides(
 
     console.print(f"[cyan]Searching guides: keyword={keyword!r}, device={device_key}, limit={limit}[/cyan]")
 
-    # Build keyword list: primary first, then variations
-    variations = list(DEVICE_KEYWORD_VARIATIONS.get(device_key, []))
+    # Build keyword list: primary first, then dynamically generated variations
+    variations      = _build_keyword_variations(device_key)
     keywords_to_try = [keyword] + [v for v in variations if v != keyword]
 
     seen_ids: set[int] = set()
@@ -479,7 +473,7 @@ def crawl_guides(
             added = 0
             for m in results:
                 gid = m["guideid"]
-                if gid not in seen_ids:
+                if gid not in seen_ids and _is_accepted(m, device_key):
                     seen_ids.add(gid)
                     candidate_queue.append(m)
                     added += 1

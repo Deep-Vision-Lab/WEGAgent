@@ -44,7 +44,7 @@ def fetch_guide(guide_id: int) -> dict:
 def search_guides(keyword: str, limit: int = 10) -> list[dict]:
     """
     Search for guides using iFixit's suggest API.
-    
+
     Returns:
         List of dicts with: guideid, title, category, url
     """
@@ -64,6 +64,37 @@ def search_guides(keyword: str, limit: int = 10) -> list[dict]:
         })
         if len(results) >= limit:
             break
+    return results
+
+
+def search_guides_paginated(keyword: str, offset: int = 0, page_size: int = 20) -> list[dict]:
+    """
+    Search for guides using iFixit's paginated /search/ endpoint.
+    Used when suggest results are exhausted.
+
+    Returns:
+        List of dicts with: guideid, title, category, url
+    """
+    url = f"{BASE_URL}/search/{keyword}"
+    params = {"doctypes": "guide", "limit": page_size, "offset": offset}
+    try:
+        data = fetch_json(url, params=params)
+    except Exception:
+        return []
+
+    results = []
+    for r in data.get("results", []):
+        if r.get("dataType") != "guide":
+            continue
+        guide_id = r.get("guideid")
+        if guide_id is None:
+            continue
+        results.append({
+            "guideid": guide_id,
+            "title": r.get("title", ""),
+            "category": r.get("category"),
+            "url": r.get("url"),
+        })
     return results
 
 
@@ -370,17 +401,43 @@ def crawl_guides(
     if existing_ids:
         console.print(f"[cyan]Found {len(existing_ids)} already-crawled guide(s) locally — will skip them[/cyan]")
 
-    # Fetch a larger candidate pool so we have room to skip duplicates
-    fetch_limit = limit + len(existing_ids) + 10
     console.print(f"[cyan]Searching guides: keyword={keyword!r}, device={device_key}, limit={limit}[/cyan]")
-    metas = search_guides(keyword, fetch_limit)
-    console.print(f"[cyan]Found {len(metas)} guide candidates[/cyan]")
 
-    saved_paths = []
-    for meta in metas:
-        if len(saved_paths) >= limit:
+    # Phase 1: suggest endpoint (fast, no pagination)
+    suggest_results = search_guides(keyword, limit + len(existing_ids) + 10)
+    seen_ids: set[int] = set()
+    candidate_queue: list[dict] = []
+    for m in suggest_results:
+        gid = m["guideid"]
+        if gid not in seen_ids:
+            seen_ids.add(gid)
+            candidate_queue.append(m)
+
+    saved_paths: list[Path] = []
+    page_offset = 0
+    page_size   = 20
+    exhausted   = False
+
+    while len(saved_paths) < limit and not exhausted:
+        # Refill queue from paginated search when suggest results run out
+        if not candidate_queue:
+            console.print(f"[cyan]Fetching more candidates (offset={page_offset})…[/cyan]")
+            page = search_guides_paginated(keyword, offset=page_offset, page_size=page_size)
+            page_offset += page_size
+            if not page:
+                exhausted = True
+                break
+            for m in page:
+                gid = m["guideid"]
+                if gid not in seen_ids:
+                    seen_ids.add(gid)
+                    candidate_queue.append(m)
+
+        if not candidate_queue:
+            exhausted = True
             break
 
+        meta     = candidate_queue.pop(0)
         guide_id = meta["guideid"]
 
         if guide_id in existing_ids:
@@ -394,7 +451,7 @@ def crawl_guides(
             guides_dir, imgs_dir = build_output_paths(output_root, device_key, category.strip())
             saved = convert_guide_to_preweg(guide, guides_dir, imgs_dir)
             saved_paths.append(saved)
-            existing_ids.add(guide_id)  # prevent re-fetching within the same run
+            existing_ids.add(guide_id)
         except Exception as e:
             console.print(f"[red][ERROR] Failed to crawl guide {guide_id}: {e}[/red]")
 
